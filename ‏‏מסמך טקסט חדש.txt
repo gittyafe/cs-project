@@ -5,3 +5,4 @@ git switch -c <branch-name>  //create and switch
 git switch <branch-name>  //switch 
 git branch -D <branch-name> //delete the branch by force
 
+git remote set-url origin https://github.com/new-username/repo-name.git //to change the remote
