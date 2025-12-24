@@ -9,3 +9,4 @@ Z:\יד תשפו\יפה גיטה\C#\הפרוייקט\DotNet2026_8469_4134\DalFac
 Z:\יד תשפו\יפה גיטה\C#\הפרוייקט\DotNet2026_8469_4134\DalFacade\obj\Debug\refint\DalFacade.dll
 Z:\יד תשפו\יפה גיטה\C#\הפרוייקט\DotNet2026_8469_4134\DalFacade\obj\Debug\DalFacade.pdb
 Z:\יד תשפו\יפה גיטה\C#\הפרוייקט\DotNet2026_8469_4134\DalFacade\obj\Debug\ref\DalFacade.dll
+Z:\יד תשפו\יפה גיטה\C#\הפרוייקט\DotNet2026_8469_4134\DalFacade\obj\Debug\DalFacade.sourcelink.json
