@@ -1,3 +1,5 @@
+
+
 useful commands in git:
 
 git config --global user.name "השם החדש" //change the user name
@@ -6,3 +8,4 @@ git switch <branch-name>  //switch
 git branch -D <branch-name> //delete the branch by force
 
 git remote set-url origin https://github.com/new-username/repo-name.git //to change the remote
+
