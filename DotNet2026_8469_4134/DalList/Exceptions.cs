@@ -9,10 +9,14 @@ namespace Dal;
 
 public class NotExistException : Exception
 {
-    
+    public NotExistException() : base("there is no such item")
+    {
+    }
 }
 
 public class AlreadyExistException : Exception
 {
-
+    public AlreadyExistException() : base("there is already such item")
+    {
+    }
 }
