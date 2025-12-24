@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 namespace DO;
 
 public record Sale(
+    int Id,
     int ProductId,
     int QuantityRequired,
     double TotalPrice,
@@ -16,10 +17,10 @@ public record Sale(
     DateTime EndSale)
 {
 
-    static int _nextId = 1;
-    int Id = _nextId++;
+    //static int _nextId = 1;
+    //int Id = _nextId++;
 
-    public Sale() : this(-1, 0, 0, false, DateTime.Now, DateTime.Now)
+    public Sale() : this(0,-1, 0, 0, false, DateTime.Now, DateTime.Now)
     {
 
     }
