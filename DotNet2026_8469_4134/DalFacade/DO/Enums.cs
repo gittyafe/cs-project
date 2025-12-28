@@ -1,3 +1,3 @@
 ﻿namespace DO;
 
-public enum Category { CHOCOLATE, CREAM, CRACKER }
+public enum Category { CHOCOLATE, CREAM, NUTS, POWDER, DECORATION  }
