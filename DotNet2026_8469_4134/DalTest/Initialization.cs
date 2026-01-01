@@ -23,9 +23,8 @@ public static class Initialization
         pi.Create(new Product(10, "Chocolate chips", Category.CHOCOLATE, 9, 50));
 
     }
-    private static void createCustomers(ICustomer ic)
+    private static void createCustomers(ICustomer ci)
     {
-        CustomerImplementation ci = new CustomerImplementation();
         ci.Create(new Customer(1, "Rivki", "Meromei Sade", "123456789"));
         ci.Create(new Customer(2, "Gitty", "Ktsot ", "1357925"));
         ci.Create(new Customer(3, "Yehudit", "Shaagat arie", "431221111"));
