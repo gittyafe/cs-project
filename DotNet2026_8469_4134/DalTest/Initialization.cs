@@ -9,11 +9,8 @@ public static class Initialization
 {
     private static IDal? s_dal;
 
-
-
-    private static void creatProducts()
+    private static void creatProducts(IProduct pi)
     {
-        ProductImplementation pi = new ProductImplementation();
         pi.Create(new Product(1, "Rich", Category.CREAM, 5.5, 10));
         pi.Create(new Product(2, "Blueberry", Category.CREAM, 12, 20));
         pi.Create(new Product(3, "Crystal Sugar", Category.DECORATION, 6, 30));
@@ -26,7 +23,7 @@ public static class Initialization
         pi.Create(new Product(10, "Chocolate chips", Category.CHOCOLATE, 9, 50));
 
     }
-    private static void createCustomers()
+    private static void createCustomers(ICustomer ic)
     {
         CustomerImplementation ci = new CustomerImplementation();
         ci.Create(new Customer(1, "Rivki", "Meromei Sade", "123456789"));
@@ -46,11 +43,8 @@ public static class Initialization
         ci.Create(new Customer(14, "Reuven", "Rashbi", "74543"));
         ci.Create(new Customer(15, "Shosh", "Avney nezer", "534465768"));
     }
-    private static void createSales()
+    private static void createSales(ISale si)
     {
-        ProductImplementation pi = new ProductImplementation();
-        ;
-        SaleImplementation si = new SaleImplementation();
         si.Create(new Sale(1, 1, 12, 43.8, true, new DateTime(2025, 12, 31), new DateTime(2026, 12, 31)));
         si.Create(new Sale(2, 2, 12, 44, false, new DateTime(2026, 1, 1), new DateTime(2026, 1, 31)));
         si.Create(new Sale(3, 3, 2, 2, true, new DateTime(2015, 12, 31), new DateTime(2016, 12, 31)));
@@ -60,9 +54,8 @@ public static class Initialization
     public static void initialize(IDal dal)
     {
         s_dal = dal;
-        createSales();
-        createCustomers();
-        creatProducts();
-
+        createSales(s_dal.Sale);
+        createCustomers(s_dal.Customer);
+        creatProducts(s_dal.Product);
     }
 }

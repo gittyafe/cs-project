@@ -35,9 +35,9 @@ public class Program
                 num1 = int.Parse(Console.ReadLine());
                 switch (num1)
                 {
-                    case 1: customersUser(); break;
-                    case 2: productsUser(); break;
-                    case 3: salesUser(); break;
+                    case 1: customersUser(s_dal.Customer); break;
+                    case 2: productsUser(s_dal.Product); break;
+                    case 3: salesUser(s_dal.Sale); break;
                     case 4: break;
                     default: Console.WriteLine("illegal num"); break;
                 }
@@ -58,10 +58,9 @@ public class Program
     }
 
 
-    private static void salesUser()
+    private static void salesUser(ICrud<Sale> s)
     {
         int menuNum = menuCrud();
-        SaleImplementation s = new SaleImplementation();
 
         switch (menuNum)
         {
@@ -93,10 +92,9 @@ public class Program
                 break;
         }
     }
-    private static void productsUser()
+    private static void productsUser(ICrud<Product> p)
     {
         int menuNum = menuCrud();
-        ProductImplementation p = new ProductImplementation();
 
         switch (menuNum)
         {
@@ -130,10 +128,9 @@ public class Program
         }
 
     }
-    private static void customersUser()
+    private static void customersUser(ICrud<Customer> c)
     {
         int menuNum = menuCrud();
-        CustomerImplementation c = new CustomerImplementation();
 
         switch (menuNum)
         {

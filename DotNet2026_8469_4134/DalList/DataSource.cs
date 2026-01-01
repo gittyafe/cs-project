@@ -1,6 +1,7 @@
 ﻿
 
 using DO;
+using System.Numerics;
 using System.Runtime.ConstrainedExecution;
 
 namespace Dal;
@@ -15,6 +16,12 @@ internal static class DataSource
         internal const int minimum = 1000;
         private static int statValue = minimum;
         public static int StaticValue {  get { return statValue++; } }
+
+        //public static IEnumerable<int> runningVal() {
+        //    int x = minimum;
+        //    yield return x;
+        //    x++;
+        //}
     }
 }
 
