@@ -14,7 +14,7 @@ public class ProductImplementation : IProduct
             if (item.Id == p?.Id)
                 throw new AlreadyExistException("there is already a product with id " + item.Id);
         }
-        int id = Config.StaticValue;
+        int id = Config.StaticValueProduct;
         Product product = item with { Id = id };
         Products.Add(product);
         return id;
@@ -32,7 +32,7 @@ public class ProductImplementation : IProduct
     }
     public List<Product> ReadAll()
     {
-        return Products;
+        return new List<Product>(Products);
     }
     public void Update(Product item)
     {

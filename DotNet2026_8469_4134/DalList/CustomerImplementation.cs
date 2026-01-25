@@ -11,12 +11,10 @@ public class CustomerImplementation : ICustomer
         foreach (var c in Customers)
         {
             if (item.Id == c?.Id)
-                throw new AlreadyExistException("there is already a customer with id "+ item.Id);
+                throw new AlreadyExistException("there is already a customer with id " + item.Id);
         }
-        int id = Config.StaticValue;
-        Customer cust = item with { Id = id };
-        Customers.Add(cust);
-        return id;
+        Customers.Add(item);
+        return item.Id;
 
     }
     public Customer? Read(int id)
@@ -31,7 +29,7 @@ public class CustomerImplementation : ICustomer
     }
     public List<Customer> ReadAll()
     {
-        return Customers;
+        return new List<Customer>(Customers);
     }
     public void Update(Customer item)
     {

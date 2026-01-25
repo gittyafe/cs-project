@@ -15,7 +15,7 @@ public class SaleImplementation : ISale
             if (item.Id == s?.Id)
                 throw new AlreadyExistException("there already a no sale with id " + item.Id);
         }
-        int id = Config.StaticValue;
+        int id = Config.StaticValueSale;
         Sale sale = item with { Id = id };
         Sales.Add(sale);
         return id;
@@ -33,7 +33,7 @@ public class SaleImplementation : ISale
     }
     public List<Sale> ReadAll()
     {
-        return Sales;
+        return new List <Sale> (Sales);
     }
     public void Update(Sale item)
     {

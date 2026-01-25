@@ -8,15 +8,15 @@ namespace DalTest;
 public static class Initialization
 {
     private static IDal? s_dal;
-
+    private static List<int> listP = new List<int>();
     private static void creatProducts(IProduct pi)
     {
-        pi.Create(new Product(1, "Rich", Category.CREAM, 5.5, 10));
-        pi.Create(new Product(2, "Blueberry", Category.CREAM, 12, 20));
-        pi.Create(new Product(3, "Crystal Sugar", Category.DECORATION, 6, 30));
-        pi.Create(new Product(4, "pearl candys", Category.DECORATION, 6, 18));
-        pi.Create(new Product(5, "Crocnet", Category.NUTS, 8, 15));
-        pi.Create(new Product(6, "Pecans", Category.NUTS, 9, 10));
+        listP.Add(pi.Create(new Product(1000, "Rich", Category.CREAM, 5.5, 10)));
+        listP.Add(pi.Create(new Product(2, "Blueberry", Category.CREAM, 12, 20)));
+        listP.Add(pi.Create(new Product(3, "Crystal Sugar", Category.DECORATION, 6, 30)));
+        listP.Add(pi.Create(new Product(4, "pearl candys", Category.DECORATION, 6, 18)));
+        listP.Add(pi.Create(new Product(5, "Crocnet", Category.NUTS, 8, 15)));
+        listP.Add(pi.Create(new Product(6, "Pecans", Category.NUTS, 9, 10)));
         pi.Create(new Product(7, "Jelly", Category.POWDER, 3.5, 30));
         pi.Create(new Product(8, "Baking Powder", Category.POWDER, 2.5, 50));
         pi.Create(new Product(9, "White chocolate", Category.CHOCOLATE, 8, 50));
@@ -29,8 +29,8 @@ public static class Initialization
         ci.Create(new Customer(2, "Gitty", "Ktsot ", "1357925"));
         ci.Create(new Customer(3, "Yehudit", "Shaagat arie", "431221111"));
         ci.Create(new Customer(4, "Tovi", "Mesilat yosef", "464575678"));
-        ci.Create(new Customer(4, "Shulamit", "Netivot hamishpat", "78787878"));
-        ci.Create(new Customer(5, "Dvory", "Rabi akiva", "57453243"));
+        ci.Create(new Customer(16, "Shulamit", "Netivot hamishpat", "78787878"));
+        ci.Create(new Customer(5, "Dvory", "Rabi Akiva", "57453243"));
         ci.Create(new Customer(6, "Tamar", "Petah Tikva", "235437548"));
         ci.Create(new Customer(7, "Bina", "Mesilat yosef", "45636457"));
         ci.Create(new Customer(8, "Shosh", "Rashbi", "7456634"));
@@ -44,17 +44,18 @@ public static class Initialization
     }
     private static void createSales(ISale si)
     {
-        si.Create(new Sale(1, 1, 12, 43.8, true, new DateTime(2025, 12, 31), new DateTime(2026, 12, 31)));
-        si.Create(new Sale(2, 2, 12, 44, false, new DateTime(2026, 1, 1), new DateTime(2026, 1, 31)));
-        si.Create(new Sale(3, 3, 2, 2, true, new DateTime(2015, 12, 31), new DateTime(2016, 12, 31)));
-        si.Create(new Sale(4, 4, 1, 98.8, true, new DateTime(2015, 12, 31), new DateTime(2016, 12, 31)));
-        si.Create(new Sale(5, 5, 3, 123, true, new DateTime(2015, 12, 31), new DateTime(2026, 12, 31)));
+
+        si.Create(new Sale(1, listP[0], 12, 43.8, true, new DateTime(2025, 12, 31), new DateTime(2026, 12, 31)));
+        si.Create(new Sale(2, listP[1], 12, 44, false, new DateTime(2026, 1, 1), new DateTime(2026, 1, 31)));
+        si.Create(new Sale(3, listP[2], 2, 2, true, new DateTime(2015, 12, 31), new DateTime(2016, 12, 31)));
+        si.Create(new Sale(4, listP[3], 1, 98.8, true, new DateTime(2015, 12, 31), new DateTime(2016, 12, 31)));
+        si.Create(new Sale(5, listP[4], 3, 123, true, new DateTime(2015, 12, 31), new DateTime(2026, 12, 31)));
     }
     public static void initialize(IDal dal)
     {
         s_dal = dal;
+        creatProducts(s_dal.Product);
         createSales(s_dal.Sale);
         createCustomers(s_dal.Customer);
-        creatProducts(s_dal.Product);
     }
 }
