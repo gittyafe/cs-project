@@ -11,7 +11,7 @@ public class CustomerImplementation : ICustomer
         foreach (var c in Customers)
         {
             if (item.Id == c?.Id)
-                throw new AlreadyExistException();
+                throw new AlreadyExistException("there is already a customer with id "+ item.Id);
         }
         int id = Config.StaticValue;
         Customer cust = item with { Id = id };
@@ -27,7 +27,7 @@ public class CustomerImplementation : ICustomer
                 return c;
             
         }
-        throw new NotExistException();
+        throw new NotExistException("there is no customer with id " + id);
     }
     public List<Customer> ReadAll()
     {
@@ -48,7 +48,7 @@ public class CustomerImplementation : ICustomer
                 return;
             }     
         }
-        throw new NotExistException();
+        throw new NotExistException("there is no customer with id " + id);
 
     }
 }

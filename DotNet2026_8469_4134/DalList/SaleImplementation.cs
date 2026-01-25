@@ -13,7 +13,7 @@ public class SaleImplementation : ISale
         foreach (var s in Sales)
         {
             if (item.Id == s?.Id)
-                throw new AlreadyExistException();
+                throw new AlreadyExistException("there already a no sale with id " + item.Id);
         }
         int id = Config.StaticValue;
         Sale sale = item with { Id = id };
@@ -29,7 +29,7 @@ public class SaleImplementation : ISale
                 return s;
 
         }
-        throw new NotExistException();
+        throw new NotExistException("there is no sale with id " + id);
     }
     public List<Sale> ReadAll()
     {
@@ -50,6 +50,6 @@ public class SaleImplementation : ISale
                 return;
             }
         }
-        throw new NotExistException();
+        throw new NotExistException("there is no sale with id " + id);
     }
 }

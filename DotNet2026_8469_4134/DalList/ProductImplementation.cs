@@ -12,7 +12,7 @@ public class ProductImplementation : IProduct
         foreach (var p in Products)
         {
             if (item.Id == p?.Id)
-                throw new AlreadyExistException();
+                throw new AlreadyExistException("there is already a product with id " + item.Id);
         }
         int id = Config.StaticValue;
         Product product = item with { Id = id };
@@ -28,7 +28,7 @@ public class ProductImplementation : IProduct
                 return p;
             
         }
-        throw new NotExistException();
+        throw new NotExistException("there is no product with id " + id);
     }
     public List<Product> ReadAll()
     {
@@ -49,7 +49,7 @@ public class ProductImplementation : IProduct
                 return;
             }     
         }
-        throw new NotExistException();
+        throw new NotExistException("there is no product with id " + id);
 
     }
 }
