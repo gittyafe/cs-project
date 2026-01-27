@@ -8,12 +8,11 @@ public class ProductImplementation : IProduct
 {
     public int Create(Product item)
     {
-        
-        foreach (var p in Products)
-        {
-            if (item.Id == p?.Id)
-                throw new AlreadyExistException("there is already a product with id " + item.Id);
-        }
+        var q1 = Products.FirstOrDefault(p => p.Id == item.Id);
+        if (q1 != null)
+            throw new AlreadyExistException("there is already a product with id " + item.Id);
+       
+
         int id = Config.StaticValueProduct;
         Product product = item with { Id = id };
         Products.Add(product);
@@ -22,17 +21,16 @@ public class ProductImplementation : IProduct
     }
     public Product? Read(int id)
     {
-        foreach (var p in Products)
-        {
-            if (id == p.Id)
-                return p;
-            
-        }
-        throw new NotExistException("there is no product with id " + id);
+        var q1 = Products.FirstOrDefault(p => p.Id == id);
+        if (q1 == null)
+            throw new NotExistException("there is no product with id " + id);
+
+        return q1;
     }
     public List<Product> ReadAll()
     {
-        return new List<Product>(Products);
+        var q = Products.ToList();
+        return q;
     }
     public void Update(Product item)
     {
@@ -41,15 +39,11 @@ public class ProductImplementation : IProduct
     }
     public void Delete(int id)
     {
-        foreach (var p in Products)
-        {
-            if (id == p.Id)
-            {
-                Products.Remove(p);
-                return;
-            }     
-        }
-        throw new NotExistException("there is no product with id " + id);
+        var q1 = Products.FirstOrDefault(p => p.Id == id);
+        if (q1 == null)
+            throw new NotExistException("there is no product with id " + id);
 
+        var q2 = Products.Where(p => p.Id != id).ToList();
+        Products = q2;
     }
 }

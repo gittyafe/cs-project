@@ -187,7 +187,8 @@ public class Program
     }
     private static Customer getUserCustomer(int id = 0)
     {
-        Console.WriteLine("insert name, address,phone");
+        Console.WriteLine("insert id, name, address,phone");
+        id = int.Parse(Console.ReadLine());
         string name = Console.ReadLine();
         string address = Console.ReadLine();
         string phone = Console.ReadLine();

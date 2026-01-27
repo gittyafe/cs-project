@@ -9,31 +9,27 @@ public class SaleImplementation : ISale
     
     public int Create(Sale item)
     {
+        var q1 = Sales.FirstOrDefault(s => s.Id == item.Id);
+        if (q1 != null)
+            throw new AlreadyExistException("there is already a sale with id " + item.Id);
 
-        foreach (var s in Sales)
-        {
-            if (item.Id == s?.Id)
-                throw new AlreadyExistException("there already a no sale with id " + item.Id);
-        }
         int id = Config.StaticValueSale;
         Sale sale = item with { Id = id };
         Sales.Add(sale);
         return id;
-
     }
     public Sale? Read(int id)
     {
-        foreach (var s in Sales)
-        {
-            if (id == s.Id)
-                return s;
+        var q1 = Sales.FirstOrDefault(s=>s.Id==id);
+        if (q1 == null)
+            throw new NotExistException("there is no sale with id " + id);
 
-        }
-        throw new NotExistException("there is no sale with id " + id);
+        return q1;
     }
     public List<Sale> ReadAll()
     {
-        return new List <Sale> (Sales);
+        var q = Sales.ToList();
+        return q;
     }
     public void Update(Sale item)
     {
@@ -42,14 +38,12 @@ public class SaleImplementation : ISale
     }
     public void Delete(int id)
     {
-        foreach (var s in Sales)
-        {
-            if (id == s.Id)
-            {
-                Sales.Remove(s);
-                return;
-            }
-        }
-        throw new NotExistException("there is no sale with id " + id);
+        var q1 = Sales.FirstOrDefault(s => s.Id == id);
+        Console.WriteLine( q1);
+        if (q1 == null)
+            throw new NotExistException("there is no sale with id " + id);
+
+        var q2 = Sales.Where(s=>s.Id!=id).ToList();
+        Sales = q2;
     }
 }
