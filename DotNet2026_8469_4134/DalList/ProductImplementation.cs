@@ -20,15 +20,14 @@ public class ProductImplementation : IProduct
         return id;
 
     }
-    public Product? Read(int id)
+    public Product? Read(Func<Product, bool> filter)
     {
         foreach (var p in Products)
         {
-            if (id == p.Id)
-                return p;
-            
+            if (filter(p))
+                return p;    
         }
-        throw new NotExistException("there is no product with id " + id);
+        throw new NotExistException("there is no product with this trait");
     }
     public List<Product> ReadAll()
     {

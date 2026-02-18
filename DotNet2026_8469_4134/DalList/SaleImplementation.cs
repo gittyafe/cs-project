@@ -21,15 +21,15 @@ public class SaleImplementation : ISale
         return id;
 
     }
-    public Sale? Read(int id)
+    public Sale? Read(Func<Sale, bool> filter)
     {
         foreach (var s in Sales)
         {
-            if (id == s.Id)
+            if (filter(s))
                 return s;
-
         }
-        throw new NotExistException("there is no sale with id " + id);
+
+        throw new NotExistException("there is no sale with this trait");
     }
     public List<Sale> ReadAll()
     {

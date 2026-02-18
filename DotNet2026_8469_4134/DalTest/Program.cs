@@ -75,11 +75,12 @@ public class Program
                 break;
 
             case 3:
-                Console.WriteLine(s.Read(getId()));
+                int id = getId();
+                Console.WriteLine(s.Read(x->x.Id == id));
                 break;
 
             case 4:
-                int id = getId();
+                id = getId();
                 s.Update(getUserSale(id));
                 break;
 

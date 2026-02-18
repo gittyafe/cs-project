@@ -17,15 +17,14 @@ public class CustomerImplementation : ICustomer
         return item.Id;
 
     }
-    public Customer? Read(int id)
+    public Customer? Read(Func<Customer, bool> filter)
     {
         foreach (var c in Customers)
         {
-            if (id == c?.Id)
+            if (filter(c))
                 return c;
-            
         }
-        throw new NotExistException("there is no customer with id " + id);
+        throw new NotExistException("there is no customer with this trait");
     }
     public List<Customer> ReadAll()
     {
