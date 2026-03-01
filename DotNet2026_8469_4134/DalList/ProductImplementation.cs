@@ -22,20 +22,12 @@ public class ProductImplementation : IProduct
     }
     public Product Read(Func<Product, bool> filter)
     {
-<<<<<<< HEAD
         var product = Products.FirstOrDefault(filter);
 
         if (product is null)
             throw new NotExistException("There is no product with this trait");
 
         return product;
-=======
-        var q1 = Products.FirstOrDefault(p => p.Id == id);
-        if (q1 == null)
-            throw new NotExistException("there is no product with id " + id);
-
-        return q1;
->>>>>>> 6c255c1b6dfe27268c1c4de2c1fa6a8444f4491c
     }
     public List<Product> ReadAll()
     {
