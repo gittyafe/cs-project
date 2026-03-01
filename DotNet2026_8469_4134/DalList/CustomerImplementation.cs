@@ -8,27 +8,36 @@ public class CustomerImplementation : ICustomer
 {
     public int Create(Customer item)
     {
-        foreach (var c in Customers)
-        {
-            if (item.Id == c?.Id)
-                throw new AlreadyExistException("there is already a customer with id " + item.Id);
-        }
+
+        var q1 = Customers.FirstOrDefault(c => c.Id == item.Id);
+        if (q1 != null)
+            throw new AlreadyExistException("there is already a customer with id " + item.Id);
+
         Customers.Add(item);
         return item.Id;
 
     }
     public Customer Read(Func<Customer, bool> filter)
     {
+<<<<<<< HEAD
         var customer = Customers.FirstOrDefault(filter);
 
         if (customer is null)
             throw new NotExistException("There is no customer with this trait");
 
         return customer;
+=======
+        var q1 = Customers.FirstOrDefault(c => c.Id == id);
+        if (q1 == null)
+            throw new NotExistException("there is no customer with id " + id);
+
+        return q1;
+>>>>>>> 6c255c1b6dfe27268c1c4de2c1fa6a8444f4491c
     }
     public List<Customer> ReadAll()
     {
-        return new List<Customer>(Customers);
+        var q = Customers.ToList();
+        return q;
     }
     public void Update(Customer item)
     {
@@ -37,15 +46,12 @@ public class CustomerImplementation : ICustomer
     }
     public void Delete(int id)
     {
-        foreach (var c in Customers)
-        {
-            if (id == c.Id)
-            {
-                Customers.Remove(c);
-                return;
-            }     
-        }
-        throw new NotExistException("there is no customer with id " + id);
+        var q1 = Customers.FirstOrDefault(s => s.Id == id);
+        Console.WriteLine(q1);
+        if (q1 == null)
+            throw new NotExistException("there is no customer with id " + id);
 
+        var q2 = Customers.Where(c => c.Id != id).ToList();
+        Customers = q2;
     }
 }
