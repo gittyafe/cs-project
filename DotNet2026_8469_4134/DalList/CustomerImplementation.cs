@@ -19,20 +19,12 @@ public class CustomerImplementation : ICustomer
     }
     public Customer Read(Func<Customer, bool> filter)
     {
-<<<<<<< HEAD
         var customer = Customers.FirstOrDefault(filter);
 
         if (customer is null)
             throw new NotExistException("There is no customer with this trait");
 
         return customer;
-=======
-        var q1 = Customers.FirstOrDefault(c => c.Id == id);
-        if (q1 == null)
-            throw new NotExistException("there is no customer with id " + id);
-
-        return q1;
->>>>>>> 6c255c1b6dfe27268c1c4de2c1fa6a8444f4491c
     }
     public List<Customer> ReadAll()
     {
