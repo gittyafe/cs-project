@@ -3,12 +3,20 @@ using DO;
 using Dal;
 using DalTest;
 using System;
+using Tools;
 
 public class Program
 {
     private static IDal s_dal = new DalList();
 
     public static void Main(string[]args)
+    {
+        //main_menu();
+        LogManager.cleanOldLog();
+
+
+    }
+    private static void main_menu()
     {
         try
         {
@@ -56,7 +64,6 @@ public class Program
             Console.WriteLine(e.Message);
         }
     }
-
 
     private static void salesUser(ICrud<Sale> s)
     {
