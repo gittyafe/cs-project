@@ -1,5 +1,6 @@
-﻿using DO;
-using DalApi;
+﻿using DalApi;
+using DO;
+using System.Linq;
 using static Dal.DataSource;
 
 namespace Dal;
@@ -21,15 +22,14 @@ public class SaleImplementation : ISale
         return id;
 
     }
-    public Sale? Read(Func<Sale, bool> filter)
+    public Sale Read(Func<Sale, bool> filter)
     {
-        foreach (var s in Sales)
-        {
-            if (filter(s))
-                return s;
-        }
+        var sale = Sales.FirstOrDefault(filter);
 
-        throw new NotExistException("there is no sale with this trait");
+        if (sale is null)
+            throw new NotExistException("There is no sale with this trait");
+
+        return sale;
     }
     public List<Sale> ReadAll()
     {

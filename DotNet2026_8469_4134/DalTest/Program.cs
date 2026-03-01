@@ -76,7 +76,7 @@ public class Program
 
             case 3:
                 int id = getId();
-                Console.WriteLine(s.Read(x->x.Id == id));
+                Console.WriteLine(s.Read(x=>x.Id == id));
                 break;
 
             case 4:
@@ -110,11 +110,12 @@ public class Program
                 break ;
 
             case 3:
-                Console.WriteLine(p.Read(getId()));
+                int id = getId();
+                Console.WriteLine(p.Read(x => x.Id == id));
                 break;
 
             case 4:
-                int id = getId();
+                id = getId();
                 p.Update(getUserProduct(id));
                 break;
 
@@ -146,11 +147,12 @@ public class Program
                 break;
 
             case 3:
-                Console.WriteLine(c.Read(getId()));
+                int id = getId();
+                Console.WriteLine(c.Read(x => x.Id == id));
                 break;
 
             case 4:
-                int id = getId();
+                id = getId();
                 c.Update(getUserCustomer(id));
                 break;
 

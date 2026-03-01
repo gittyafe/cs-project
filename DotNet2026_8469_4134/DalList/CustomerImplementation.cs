@@ -17,14 +17,14 @@ public class CustomerImplementation : ICustomer
         return item.Id;
 
     }
-    public Customer? Read(Func<Customer, bool> filter)
+    public Customer Read(Func<Customer, bool> filter)
     {
-        foreach (var c in Customers)
-        {
-            if (filter(c))
-                return c;
-        }
-        throw new NotExistException("there is no customer with this trait");
+        var customer = Customers.FirstOrDefault(filter);
+
+        if (customer is null)
+            throw new NotExistException("There is no customer with this trait");
+
+        return customer;
     }
     public List<Customer> ReadAll()
     {

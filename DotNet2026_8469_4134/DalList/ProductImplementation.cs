@@ -1,5 +1,6 @@
-﻿using DO;
-using DalApi;
+﻿using DalApi;
+using DO;
+using System.Linq;
 using static Dal.DataSource;
 
 namespace Dal;
@@ -20,14 +21,14 @@ public class ProductImplementation : IProduct
         return id;
 
     }
-    public Product? Read(Func<Product, bool> filter)
+    public Product Read(Func<Product, bool> filter)
     {
-        foreach (var p in Products)
-        {
-            if (filter(p))
-                return p;    
-        }
-        throw new NotExistException("there is no product with this trait");
+        var product = Products.FirstOrDefault(filter);
+
+        if (product is null)
+            throw new NotExistException("There is no product with this trait");
+
+        return product;
     }
     public List<Product> ReadAll()
     {
