@@ -21,20 +21,12 @@ public class SaleImplementation : ISale
     }
     public Sale Read(Func<Sale, bool> filter)
     {
-<<<<<<< HEAD
         var sale = Sales.FirstOrDefault(filter);
 
         if (sale is null)
             throw new NotExistException("There is no sale with this trait");
 
         return sale;
-=======
-        var q1 = Sales.FirstOrDefault(s=>s.Id==id);
-        if (q1 == null)
-            throw new NotExistException("there is no sale with id " + id);
-
-        return q1;
->>>>>>> 6c255c1b6dfe27268c1c4de2c1fa6a8444f4491c
     }
     public List<Sale> ReadAll()
     {
