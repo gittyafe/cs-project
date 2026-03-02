@@ -3,6 +3,7 @@ using DO;
 using Dal;
 using DalTest;
 using System;
+using System.Reflection;
 using Tools;
 
 public class Program
@@ -12,12 +13,7 @@ public class Program
     public static void Main(string[]args)
     {
         //main_menu();
-        LogManager.cleanOldLog();
-
-
-    }
-    private static void main_menu()
-    {
+        //LogManager.cleanOldLog();
         try
         {
             Initialization.initialize(s_dal);
@@ -25,43 +21,56 @@ public class Program
         catch (NotExistException e)
         {
             Console.WriteLine(e.Message);
+            LogManager.writeLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"Initialization failed: {e.Message}");
         }
         catch (AlreadyExistException e)
         {
             Console.WriteLine(e.Message);
+            LogManager.writeLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"Initialization failed: {e.Message}");
         }
         catch (Exception e)
         {
             Console.WriteLine(e.Message);
+            LogManager.writeLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"Initialization failed: {e.Message}");
         }
         int num1 = 0;
         try
         {
             do
             {
-                Console.WriteLine("insert 1 to customers, 2 to products, 3 to sales, 4 to exit");
+                Console.WriteLine("insert 1 to customers, 2 to products, 3 to sales, 4 to clean logs, 5 to exit");
                 num1 = int.Parse(Console.ReadLine());
                 switch (num1)
                 {
                     case 1: customersUser(s_dal.Customer); break;
                     case 2: productsUser(s_dal.Product); break;
                     case 3: salesUser(s_dal.Sale); break;
-                    case 4: break;
+                    case 4:
+                        Console.WriteLine("Cleaning old logs...");
+                        LogManager.writeLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, "start cleanOldLog");
+                        LogManager.cleanOldLog();
+                        Console.WriteLine("Log cleaning finished.");
+                        LogManager.writeLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, "Finished cleanOldLog");
+                        break;
+                    case 5: break;
                     default: Console.WriteLine("illegal num"); break;
                 }
-            } while (num1 != 4);
+            } while (num1 != 5);
         }
         catch (NotExistException e)
         {
             Console.WriteLine(e.Message);
+            LogManager.writeLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"Menu loop error: {e.Message}");
         }
         catch (AlreadyExistException e)
         {
             Console.WriteLine(e.Message);
+            LogManager.writeLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"Menu loop error: {e.Message}");
         }
         catch (Exception e)
         {
             Console.WriteLine(e.Message);
+            LogManager.writeLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"Menu loop error: {e.Message}");
         }
     }
 
