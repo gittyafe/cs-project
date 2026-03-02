@@ -1,4 +1,5 @@
 ﻿using DalApi;
+using Do;
 using DO;
 using System.Linq;
 using static Dal.DataSource;
@@ -12,7 +13,7 @@ public class SaleImplementation : ISale
     {
         var q1 = Sales.FirstOrDefault(s => s.Id == item.Id);
         if (q1 != null)
-            throw new AlreadyExistException("there is already a sale with id " + item.Id);
+            throw new DalAlreadyExistException("there is already a sale with id " + item.Id);
 
         int id = Config.StaticValueSale;
         Sale sale = item with { Id = id };
@@ -24,7 +25,7 @@ public class SaleImplementation : ISale
         var sale = Sales.FirstOrDefault(filter);
 
         if (sale is null)
-            throw new NotExistException("There is no sale with this trait");
+            throw new DalNotExistException("There is no sale with this trait");
 
         return sale;
     }
@@ -43,7 +44,7 @@ public class SaleImplementation : ISale
         var q1 = Sales.FirstOrDefault(s => s.Id == id);
         Console.WriteLine( q1);
         if (q1 == null)
-            throw new NotExistException("there is no sale with id " + id);
+            throw new DalNotExistException("there is no sale with id " + id);
 
         var q2 = Sales.Where(s=>s.Id!=id).ToList();
         Sales = q2;

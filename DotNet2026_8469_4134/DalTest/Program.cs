@@ -1,17 +1,18 @@
-﻿using DalApi;
-using DO;
-using Dal;
+﻿//using Dal;
+using DalApi;
 using DalTest;
+using Do;
+using DO;
 using System;
 using Tools;
 
 public class Program
 {
-    private static IDal s_dal = new DalList();
+    private static IDal s_dal = DalApi.Factory.Get;
 
     public static void Main(string[]args)
     {
-        //main_menu();
+        main_menu();
         LogManager.cleanOldLog();
 
 
@@ -20,13 +21,13 @@ public class Program
     {
         try
         {
-            Initialization.initialize(s_dal);
+            Initialization.initialize();
         }
-        catch (NotExistException e)
+        catch (DalNotExistException e)
         {
             Console.WriteLine(e.Message);
         }
-        catch (AlreadyExistException e)
+        catch (DalAlreadyExistException e)
         {
             Console.WriteLine(e.Message);
         }
@@ -51,11 +52,11 @@ public class Program
                 }
             } while (num1 != 4);
         }
-        catch (NotExistException e)
+        catch (DalNotExistException e)
         {
             Console.WriteLine(e.Message);
         }
-        catch (AlreadyExistException e)
+        catch (DalAlreadyExistException e)
         {
             Console.WriteLine(e.Message);
         }

@@ -1,4 +1,5 @@
 ﻿using DalApi;
+using Do;
 using DO;
 using System.Linq;
 using static Dal.DataSource;
@@ -11,7 +12,7 @@ public class ProductImplementation : IProduct
     {
         var q1 = Products.FirstOrDefault(p => p.Id == item.Id);
         if (q1 != null)
-            throw new AlreadyExistException("there is already a product with id " + item.Id);
+            throw new DalAlreadyExistException("there is already a product with id " + item.Id);
        
 
         int id = Config.StaticValueProduct;
@@ -25,7 +26,7 @@ public class ProductImplementation : IProduct
         var product = Products.FirstOrDefault(filter);
 
         if (product is null)
-            throw new NotExistException("There is no product with this trait");
+            throw new DalAlreadyExistException("There is no product with this trait");
 
         return product;
     }
@@ -43,7 +44,7 @@ public class ProductImplementation : IProduct
     {
         var q1 = Products.FirstOrDefault(p => p.Id == id);
         if (q1 == null)
-            throw new NotExistException("there is no product with id " + id);
+            throw new DalNotExistException("there is no product with id " + id);
 
         var q2 = Products.Where(p => p.Id != id).ToList();
         Products = q2;
