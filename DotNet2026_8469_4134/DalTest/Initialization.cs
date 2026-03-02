@@ -1,4 +1,4 @@
-﻿using Dal;
+﻿//using Dal;
 using DalApi;
 using DO;
 using System;
@@ -51,9 +51,9 @@ public static class Initialization
         si.Create(new Sale(4, listP[3], 1, 98.8, true, new DateTime(2015, 12, 31), new DateTime(2016, 12, 31)));
         si.Create(new Sale(5, listP[4], 3, 123, true, new DateTime(2015, 12, 31), new DateTime(2026, 12, 31)));
     }
-    public static void initialize(IDal dal)
+    public static void initialize()
     {
-        s_dal = dal;
+        s_dal = DalApi.Factory.Get;
         creatProducts(s_dal.Product);
         createSales(s_dal.Sale);
         createCustomers(s_dal.Customer);

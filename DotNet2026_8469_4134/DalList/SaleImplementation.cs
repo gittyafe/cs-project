@@ -1,4 +1,5 @@
 ﻿using DalApi;
+using Do;
 using DO;
 using System.Linq;
 using static Dal.DataSource;
@@ -16,10 +17,14 @@ public class SaleImplementation : ISale
 
         var q1 = Sales.FirstOrDefault(s => s.Id == item.Id);
         if (q1 != null)
+<<<<<<< HEAD
         {
             LogManager.writeLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"there is already exists with id {item.Id}");
             throw new AlreadyExistException($"there is already exists with id {item.Id}");
         }
+=======
+            throw new DalAlreadyExistException("there is already a sale with id " + item.Id);
+>>>>>>> 81151ff8110400e869dc4dfc23b69e08640fe3df
 
         int id = Config.StaticValueSale;
         Sale sale = item with { Id = id };
@@ -33,10 +38,14 @@ public class SaleImplementation : ISale
         var sale = Sales.FirstOrDefault(filter);
 
         if (sale is null)
+<<<<<<< HEAD
         {
             LogManager.writeLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, "Failed Read - not found");
             throw new NotExistException("There is no sale with this trait");
         }
+=======
+            throw new DalNotExistException("There is no sale with this trait");
+>>>>>>> 81151ff8110400e869dc4dfc23b69e08640fe3df
 
         LogManager.writeLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"End Read: Id={sale.Id}");
         return sale;
@@ -61,10 +70,14 @@ public class SaleImplementation : ISale
         var q1 = Sales.FirstOrDefault(s => s.Id == id);
         Console.WriteLine( q1);
         if (q1 == null)
+<<<<<<< HEAD
         {
             LogManager.writeLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"there is no sale with id {id}");
             throw new NotExistException($"there is no sale with id {id}");
         }
+=======
+            throw new DalNotExistException("there is no sale with id " + id);
+>>>>>>> 81151ff8110400e869dc4dfc23b69e08640fe3df
 
         var q2 = Sales.Where(s=>s.Id!=id).ToList();
         Sales = q2;

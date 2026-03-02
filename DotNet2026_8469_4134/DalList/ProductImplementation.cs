@@ -1,4 +1,5 @@
 ﻿using DalApi;
+using Do;
 using DO;
 using System.Linq;
 using static Dal.DataSource;
@@ -15,10 +16,15 @@ public class ProductImplementation : IProduct
 
         var q1 = Products.FirstOrDefault(p => p.Id == item.Id);
         if (q1 != null)
+<<<<<<< HEAD
         {
             LogManager.writeLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"Failed Create - already exists: Id={item.Id}");
             throw new AlreadyExistException("there is already a product with id " + item.Id);
         }
+=======
+            throw new DalAlreadyExistException("there is already a product with id " + item.Id);
+       
+>>>>>>> 81151ff8110400e869dc4dfc23b69e08640fe3df
 
         int id = Config.StaticValueProduct;
         Product product = item with { Id = id };
@@ -33,10 +39,14 @@ public class ProductImplementation : IProduct
         var product = Products.FirstOrDefault(filter);
 
         if (product is null)
+<<<<<<< HEAD
         {
             LogManager.writeLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, "Failed Read - not found");
             throw new NotExistException("There is no product with this trait");
         }
+=======
+            throw new DalAlreadyExistException("There is no product with this trait");
+>>>>>>> 81151ff8110400e869dc4dfc23b69e08640fe3df
 
         LogManager.writeLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"End Read: Id={product.Id}");
         return product;
@@ -60,10 +70,14 @@ public class ProductImplementation : IProduct
         LogManager.writeLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"Start Delete: Id={id}");
         var q1 = Products.FirstOrDefault(p => p.Id == id);
         if (q1 == null)
+<<<<<<< HEAD
         {
             LogManager.writeLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"Failed Delete - not found: Id={id}");
             throw new NotExistException("there is no product with id " + id);
         }
+=======
+            throw new DalNotExistException("there is no product with id " + id);
+>>>>>>> 81151ff8110400e869dc4dfc23b69e08640fe3df
 
         var q2 = Products.Where(p => p.Id != id).ToList();
         Products = q2;

@@ -1,29 +1,40 @@
-﻿using DalApi;
-using DO;
-using Dal;
+﻿//using Dal;
+using DalApi;
 using DalTest;
+using Do;
+using DO;
 using System;
 using System.Reflection;
 using Tools;
 
 public class Program
 {
-    private static IDal s_dal = new DalList();
+    private static IDal s_dal = DalApi.Factory.Get;
 
     public static void Main(string[]args)
     {
+<<<<<<< HEAD
         //main_menu();
         //LogManager.cleanOldLog();
+=======
+        main_menu();
+        LogManager.cleanOldLog();
+
+
+    }
+    private static void main_menu()
+    {
+>>>>>>> 81151ff8110400e869dc4dfc23b69e08640fe3df
         try
         {
-            Initialization.initialize(s_dal);
+            Initialization.initialize();
         }
-        catch (NotExistException e)
+        catch (DalNotExistException e)
         {
             Console.WriteLine(e.Message);
             LogManager.writeLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"Initialization failed: {e.Message}");
         }
-        catch (AlreadyExistException e)
+        catch (DalAlreadyExistException e)
         {
             Console.WriteLine(e.Message);
             LogManager.writeLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"Initialization failed: {e.Message}");
@@ -57,12 +68,12 @@ public class Program
                 }
             } while (num1 != 5);
         }
-        catch (NotExistException e)
+        catch (DalNotExistException e)
         {
             Console.WriteLine(e.Message);
             LogManager.writeLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"Menu loop error: {e.Message}");
         }
-        catch (AlreadyExistException e)
+        catch (DalAlreadyExistException e)
         {
             Console.WriteLine(e.Message);
             LogManager.writeLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"Menu loop error: {e.Message}");
