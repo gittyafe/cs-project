@@ -13,18 +13,11 @@ public class Program
 
     public static void Main(string[]args)
     {
-<<<<<<< HEAD
-        //main_menu();
-        //LogManager.cleanOldLog();
-=======
         main_menu();
         LogManager.cleanOldLog();
-
-
     }
     private static void main_menu()
     {
->>>>>>> 81151ff8110400e869dc4dfc23b69e08640fe3df
         try
         {
             Initialization.initialize();
