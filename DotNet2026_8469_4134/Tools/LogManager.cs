@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.Globalization;
 
 namespace Tools
 {
@@ -11,11 +13,13 @@ namespace Tools
         private static readonly string log = "Log";
         public static string getCurrFolderPath()
         {
-            return Path.Combine(log, DateTime.Now.Month.ToString());
+            // folder format: Log\yyyy-MM (year and month)
+            return Path.Combine(log, DateTime.Now.ToString("yyyy-MM"));
         }
         public static string getCurrFilePath()
         {
-            return Path.Combine(getCurrFolderPath(), DateTime.Now.Day.ToString());
+            // file format: dd.log (day of month with .log extension)
+            return Path.Combine(getCurrFolderPath(), DateTime.Now.ToString("dd") + ".log");
 
         }
         public static void writeLog(string nameProject, string nameFunc, string message)
@@ -26,21 +30,60 @@ namespace Tools
             if (!Directory.Exists(folderPath))
                 Directory.CreateDirectory(folderPath);
 
-            if (!File.Exists(filePath))
-                File.Create(filePath);
-
-            using (StreamWriter writer = File.CreateText(filePath)) { writer.WriteLine(message); }
+            using (var writer = new StreamWriter(filePath, append: true, encoding: Encoding.UTF8))
+            {
+                writer.WriteLine(details);
+            }
 
         }
         public static void cleanOldLog()
         {
-            string currMonth = DateTime.Now.Month.ToString();
-            var folders = Directory.GetDirectories(log);
-            foreach (string folder in folders)
+            // Delete any subfolder under the `log` directory whose last write time
+            // is older than two months. Using file system timestamps is more
+            // reliable than parsing folder names (handles year wrap, unexpected names).
+            try
             {
-                string monthFolder = Path.GetFileName(folder);
-                if(int.Parse(monthFolder) < int.Parse(currMonth)-2)
-                    Directory.Delete(folder, recursive: true);
+                if (!Directory.Exists(log))
+                    return;
+
+                DateTime cutoffDate = DateTime.Now.AddMonths(-2);
+                // For month-folder names in format yyyy-MM, compare by parsed year/month.
+                DateTime cutoffMonth = new DateTime(cutoffDate.Year, cutoffDate.Month, 1);
+                var folders = Directory.GetDirectories(log);
+                foreach (string folder in folders)
+                {
+                    try
+                    {
+                        var dirInfo = new DirectoryInfo(folder);
+                        string monthFolder = Path.GetFileName(folder);
+
+                        // Try to parse folder name as yyyy-MM (year-month).
+                        if (DateTime.TryParseExact(monthFolder, "yyyy-MM", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedMonth))
+                        {
+                            // parsedMonth will have day default (1) — compare to cutoffMonth
+                            var folderMonth = new DateTime(parsedMonth.Year, parsedMonth.Month, 1);
+                            if (folderMonth < cutoffMonth)
+                            {
+                                dirInfo.Delete(recursive: true);
+                                continue;
+                            }
+                        }
+
+                        // Fallback: if folder name couldn't be parsed, use LastWriteTime
+                        if (dirInfo.LastWriteTime < cutoffDate)
+                        {
+                            dirInfo.Delete(recursive: true);
+                        }
+                    }
+                    catch
+                    {
+                        // ignore individual folder failures to avoid stopping the whole cleanup
+                    }
+                }
+            }
+            catch
+            {
+                // ignore cleanup failures - logging from cleanup may cause recursion
             }
         }
     }
