@@ -40,10 +40,10 @@ public class ProductImplementation : IProduct
         LogManager.writeLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"End Read: Id={product.Id}");
         return product;
     }
-    public List<Product> ReadAll()
+    public List<Product> ReadAll(Func<Product, bool> filter)
     {
         LogManager.writeLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, "Start ReadAll");
-        var q = Products.ToList();
+        var q = Products.Where(filter).ToList();
         LogManager.writeLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"End ReadAll: Count={q.Count}");
         return q;
     }

@@ -56,7 +56,6 @@ namespace Tools
                     {
                         var dirInfo = new DirectoryInfo(folder);
                         string monthFolder = Path.GetFileName(folder);
-
                         // Try to parse folder name as yyyy-MM (year-month).
                         if (DateTime.TryParseExact(monthFolder, "yyyy-MM", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedMonth))
                         {
