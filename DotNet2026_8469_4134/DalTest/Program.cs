@@ -89,7 +89,7 @@ public class Program
                 break;
 
             case 2:
-                List<Sale> sales = s.ReadAll();
+                List<Sale> sales = s.ReadAll(x => true);
                 foreach(var i in sales)
                     Console.WriteLine(i);
                 break;
@@ -124,7 +124,7 @@ public class Program
                 break;
 
             case 2:
-                List<Product> prods = p.ReadAll();
+                List<Product> prods = p.ReadAll(x => true);
                 foreach (var i in prods)
                     Console.WriteLine(i);
                 break ;
@@ -161,7 +161,7 @@ public class Program
                 break;
 
             case 2:
-                List<Customer> prods = c.ReadAll();
+                List<Customer> prods = c.ReadAll(x => true);
                 foreach (var i in prods)
                     Console.WriteLine(i);
                 break;

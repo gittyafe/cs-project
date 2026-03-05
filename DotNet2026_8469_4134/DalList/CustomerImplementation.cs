@@ -36,10 +36,10 @@ public class CustomerImplementation : ICustomer
         LogManager.writeLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"End Read: Id={customer.Id}");
         return customer;
     }
-    public List<Customer> ReadAll()
+    public List<Customer> ReadAll(Func<Customer, bool> filter)
     {
         LogManager.writeLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, "Start ReadAll");
-        var q = Customers.ToList();
+        var q = Customers.Where(filter).ToList();
         LogManager.writeLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"End ReadAll: Count={q.Count}");
         return q;
     }

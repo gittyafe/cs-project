@@ -40,10 +40,10 @@ public class SaleImplementation : ISale
         LogManager.writeLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"End Read: Id={sale.Id}");
         return sale;
     }
-    public List<Sale> ReadAll()
+    public List<Sale> ReadAll(Func<Sale,bool> filter)
     {
         LogManager.writeLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, "Start ReadAll");
-        var q = Sales.ToList();
+        var q = Sales.Where(filter).ToList();
         LogManager.writeLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"End ReadAll: Count={q.Count}");
         return q;
     }
