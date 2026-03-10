@@ -1,11 +1,12 @@
-﻿
+﻿using BO;
+
 namespace BlApi;
 
 public interface IOrder
 {
-    List<BO.SaleInProduct> AddProductToOrder(BO.Order order, int id, int quantity);
-    void CalcTotalPriceForProduct(BO.ProductInOrder product);
-    void CalcTotalPrice(BO.Order order);
-    void DoOrder(BO.Order);
-    void SearchSaleForProduct(BO.ProductInOrder product, bool isFavorite);
+    List<SaleInProduct> AddProductToOrder(Order order, int id, int quantity);
+    void CalcTotalPriceForProduct(ProductInOrder product);
+    void CalcTotalPrice(Order order);
+    void DoOrder(Order);
+    void SearchSaleForProduct(ProductInOrder product, bool isFavorite);
 }

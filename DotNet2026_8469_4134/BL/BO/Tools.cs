@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Reflection;
 
 namespace BO;
-
 internal static class Tools
 {
     static string ToStringProperty<T>(T obj)

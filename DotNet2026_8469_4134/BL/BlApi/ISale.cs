@@ -1,5 +1,6 @@
-﻿
+﻿using BO;
+
 namespace BlApi;
 
-public interface ISale:ICrud<BO.Sale>
+public interface ISale:ICrud<Sale>
 {}

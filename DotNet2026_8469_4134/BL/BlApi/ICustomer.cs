@@ -1,9 +1,10 @@
-﻿
+﻿using BO;
+
 namespace BlApi;
 
-public interface ICustomer:ICrud<BO.Customer>
+public interface ICustomer:ICrud<Customer>
 {
-    bool IsExistCustomer(BO.Customer customer);
+    bool IsExistCustomer(Customer customer);
 
 }
 

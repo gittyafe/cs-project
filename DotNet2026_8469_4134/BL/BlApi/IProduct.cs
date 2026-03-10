@@ -1,7 +1,8 @@
-﻿
+﻿using BO;
+
 namespace BlApi;
 
-public interface IProduct:ICrud<BO.Product>
+public interface IProduct:ICrud<Product>
 {
-    void GetAllRelevantSalesForProduct(BO.ProductInOrder product, bool isFavorite);
+    void GetAllRelevantSalesForProduct(ProductInOrder product, bool isFavorite);
 }
