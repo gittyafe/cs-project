@@ -5,23 +5,23 @@ namespace BlImplementation
 {
     internal class OrderImplementation : IOrder
     {
-        List<BO.SaleInProduct> AddProductToOrder(BO.Order order, int id, int quantity)
+        public List<BO.SaleInProduct> AddProductToOrder(BO.Order order, int id, int quantity)
         {
 
         }
-        void CalcTotalPriceForProduct(BO.ProductInOrder product)
+        public void CalcTotalPriceForProduct(BO.ProductInOrder product)
         {
 
         }
-        void CalcTotalPrice(BO.Order order)
+        public void CalcTotalPrice(BO.Order order)
         {
 
         }
-        void DoOrder(BO.Order)
+        public void DoOrder(BO.Order order)
         {
 
         }
-        void SearchSaleForProduct(BO.ProductInOrder product, bool isFavorite)
+        public void SearchSaleForProduct(BO.ProductInOrder product, bool isFavorite)
         {
 
         }
