@@ -15,7 +15,7 @@ internal class CustomerImplementation : BlApi.ICustomer
         }
         catch (DO.DalAlreadyExistException ex)
         {
-            throw new BO.BlAlreadyExistsException("Customer already exists", ex);
+            throw new BO.BlAlreadyExistException("Customer already exists", ex);
         }
     }
     
@@ -69,6 +69,19 @@ internal class CustomerImplementation : BlApi.ICustomer
         catch (DO.DalNotExistException ex)
         {
             throw new BO.BlNotExistException("Error deleting customers", ex);
+        }
+    }
+
+    public bool IsExistCustomer(BO.Customer item)
+    {
+        try
+        {
+            return _dal.Customer.ReadAll(x => true).Any(c => c?.Id == item.Id);
+
+        }
+        catch (DO.DalException ex)
+        {
+            throw new BO.BlException("Error checking in customers", ex);
         }
     }
 }

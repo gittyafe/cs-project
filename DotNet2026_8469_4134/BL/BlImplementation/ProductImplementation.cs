@@ -15,7 +15,7 @@ internal class ProductImplementation : BlApi.IProduct
         }
         catch (DO.DalAlreadyExistException ex)
         {
-            throw new BO.BlAlreadyExistsException("Product already exists", ex);
+            throw new BO.BlAlreadyExistException("Product already exists", ex);
         }
     }
     
@@ -70,5 +70,10 @@ internal class ProductImplementation : BlApi.IProduct
         {
             throw new BO.BlNotExistException("Error deleting products", ex);
         }
+    }
+
+    public void GetAllRelevantSalesForProduct(BO.ProductInOrder product, bool isFavorite)
+    {
+        //?????????????????????????????????????????????????????
     }
 }

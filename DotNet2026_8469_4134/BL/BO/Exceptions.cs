@@ -1,17 +1,28 @@
 ﻿namespace BO;
 
 [Serializable]
-public class BLNotExistException : Exception
+public class BlNotExistException : Exception
 {
-    public BLNotExistException(string m) : base(m)
-    {
-    }
+    public BlNotExistException(string? message) : base(message) { }
+    public BlNotExistException(string message, Exception innerException)
+                : base(message, innerException) { }
+
 }
 
 [Serializable]
-public class BLAlreadyExistException : Exception
+public class BlAlreadyExistException : Exception
 {
-    public BLAlreadyExistException(string m) : base(m)
-    {
-    }
+    public BlAlreadyExistException(string? message) : base(message) { }
+    public BlAlreadyExistException(string message, Exception innerException)
+                : base(message, innerException) { }
+
+}
+
+[Serializable]
+public class BlException : Exception
+{
+    public BlException(string? message) : base(message) { }
+    public BlException(string message, Exception innerException)
+                : base(message, innerException) { }
+
 }

@@ -15,7 +15,7 @@ internal class SaleImplementation : BlApi.ISale
         }
         catch (DO.DalAlreadyExistException ex)
         {
-            throw new BO.BlAlreadyExistsException("Sale already exists", ex);
+            throw new BO.BlAlreadyExistException("Sale already exists", ex);
         }
     }
     
