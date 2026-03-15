@@ -1,4 +1,4 @@
-﻿namespace Do;
+﻿namespace DO;
 
 [Serializable]
 public class DalNotExistException : Exception
@@ -12,6 +12,14 @@ public class DalNotExistException : Exception
 public class DalAlreadyExistException : Exception
 {
     public DalAlreadyExistException(string m) : base(m)
+    {
+    }
+}
+
+[Serializable]
+public class DalException : Exception
+{
+    public DalException(string m) : base(m)
     {
     }
 }

@@ -37,7 +37,7 @@ internal static class Tools
        return result;
     }
 
-    //convertion functions - from BO to DO via vresa:
+    //convertion functions - from BO to DO and vice vresa:
 
     // המרה מ-DO ל-BO
     public static BO.Sale ToBO(this DO.Sale sale) =>
@@ -84,7 +84,7 @@ internal static class Tools
     // המרה מ-DO ל-BO
     public static BO.Product ToBO(this DO.Product product) {
         List<BO.Sale> SaleInProduct = new List<BO.Sale>();
-        new BO.Product(
+        return new BO.Product(
             product.Id,
             product.Name,
             product.Category,
