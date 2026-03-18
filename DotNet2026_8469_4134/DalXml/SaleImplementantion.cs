@@ -9,7 +9,6 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using Tools;
 
 namespace Dal
 {
@@ -26,19 +25,15 @@ namespace Dal
         }
         public Sale Read(Func<Sale, bool> filter)
         {
-           return
         }
         public List<Sale> ReadAll(Func<Sale, bool> filter)
         {
-            return
         }
         public void Update(Sale item)
         {
-           return
         }
         public void Delete(int id)
         {
-          return
         }
     }
 }
