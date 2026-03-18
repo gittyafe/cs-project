@@ -2,18 +2,18 @@
 
 public class SaleInProduct
 {
-    public int SaleID { get; set; }
-    public int AmountToSale { get; set; }
+    public int SaleId { get; set; }
+    public int AmountForSale { get; set; }
     public double Price { get; set; }
-    public bool IsToClub { get; set; }
+    public bool IsOnlyClub { get; set; }
 
     public SaleInProduct() : this(0, 0, 0.0, false) { }
 
-    public SaleInProduct(int saleID, int amountToSale, double price, bool isToClub)
+    public SaleInProduct(int saleId, int amountForSale, double price, bool isOnlyClub)
     {
-        SaleID = saleID;
-        AmountToSale = amountToSale;
+        SaleId = saleId;
+        AmountForSale = amountForSale;
         Price = price;
-        IsToClub = isToClub;
+        IsOnlyClub = isOnlyClub;
     }
 }

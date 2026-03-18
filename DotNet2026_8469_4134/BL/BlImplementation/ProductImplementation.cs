@@ -1,4 +1,6 @@
 ﻿
+using BO;
+using DalApi;
 using System.Linq;
 
 namespace BlImplementation;
@@ -74,6 +76,28 @@ internal class ProductImplementation : BlApi.IProduct
 
     public void GetAllRelevantSalesForProduct(BO.ProductInOrder product, bool isFavorite)
     {
-        //?????????????????????????????????????????????????????
+        try
+        {
+            var sales = _dal.Sale.ReadAll(s => s.ProductId == product.ProductId)
+            .Where(s => s.StartSale <= DateTime.Now && s.EndSale >= DateTime.Now);
+            if (!isFavorite)
+            {
+                sales = sales.Where(s => s.IsOnlyClub == false);
+            }
+            var result = sales.Select(s => new BO.SaleInProduct
+            {
+                SaleId = s.Id,
+                AmountForSale = s.QuantityRequired,
+                Price = s.TotalPrice,
+                IsOnlyClub = s.IsOnlyClub
+            });
+
+            product.ListSaleInProduct = result.ToList();
+        }
+        catch (DO.DalException ex)
+        {
+            throw new BO.BlException("Error in products", ex);
+        }
+
     }
 }

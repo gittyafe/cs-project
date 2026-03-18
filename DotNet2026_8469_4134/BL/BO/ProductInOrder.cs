@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class ProductInOrder
 {
-    public int ProductID { get; set; }
+    public int ProductId { get; set; }
     public string ProductName { get; set; }
     public double BasePrice { get; set; }
     public int AmountInOrder { get; set; }
@@ -14,9 +14,9 @@ public class ProductInOrder
 
     public ProductInOrder() : this(1, "", 0.0, 1, new List<SaleInProduct>(), 0.0) { }
 
-    public ProductInOrder(int productID, string productName, double basePrice, int amountInOrder, List<SaleInProduct> listSaleInProduct, double totalPrice)
+    public ProductInOrder(int productId, string productName, double basePrice, int amountInOrder, List<SaleInProduct> listSaleInProduct, double totalPrice)
     {
-        ProductID = productID;
+        ProductId = productId;
         ProductName = productName;
         BasePrice = basePrice;
         AmountInOrder = amountInOrder;
