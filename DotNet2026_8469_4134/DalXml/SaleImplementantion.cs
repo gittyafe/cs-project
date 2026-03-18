@@ -1,6 +1,8 @@
 ﻿using DalApi;
 using DalXml;
 using DO;
+using System.Xml;
+using System.Xml.Linq;
 using System.Xml.Serialization;
 
 namespace Dal;
@@ -8,6 +10,7 @@ namespace Dal;
 internal class SaleImplementantion:ISale
 {
     private readonly string fileSales = "sales";
+    private readonly string fileConfig = "data-config";
 
     private List<Sale> Load()
     {
@@ -36,7 +39,13 @@ internal class SaleImplementantion:ISale
         {
             throw new DalAlreadyExistException("there is already a sale with id " + item.Id);
         }
-        list.Add(item);
+        XElement saleConfig = XElement.Load(fileConfig);
+        int saleNum = int.Parse(saleConfig.Element("SaleNum").Value);
+
+        Sale sale = item with { Id = saleNum };
+        saleConfig.Element("SaleNum").SetValue(saleNum+1);
+        saleConfig.Save(fileConfig);
+        list.Add(sale);
         Save(list);
         return item.Id;
     }
