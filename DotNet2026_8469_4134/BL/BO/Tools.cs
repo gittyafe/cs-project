@@ -83,14 +83,14 @@ internal static class Tools
 
     // המרה מ-DO ל-BO
     public static BO.Product ToBO(this DO.Product product) {
-        List<BO.Sale> SaleInProduct = new List<BO.Sale>();
+        List<BO.SaleInProduct> saleInProduct = new List<BO.SaleInProduct>();
         return new BO.Product(
             product.Id,
             product.Name,
-            product.Category,
+            (BO.Category)product.Category,
             product.Price,
             product.QuantityInStack,
-            SaleInProduct
+            saleInProduct
 
         );
     }
@@ -100,12 +100,12 @@ internal static class Tools
         new DO.Product(
             product.Id,
             product.Name,
-            product.Category,
+            (DO.Category)product.Category,
             product.Price,
             product.QuantityInStack
         );
 }
-}
+
 
 
 

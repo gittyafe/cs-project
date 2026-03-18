@@ -1,6 +1,7 @@
 ﻿
 namespace BO;
 
+using DO;
 using System.Collections.Generic;
 
 public class Product
@@ -23,5 +24,9 @@ public class Product
         QuantityInStack = quantityInStack;
         ListSaleInProduct = listSaleInProduct ?? new List<SaleInProduct>();
     }
+
+    public override string ToString() =>
+    $"Id: {Id}, Name: {Name}, Category: {Category}, Price: {Price}, QuantityInStack: {QuantityInStack}, ListSaleInProduct: {ListSaleInProduct}";
+
 }
 

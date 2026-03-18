@@ -23,4 +23,8 @@ public class ProductInOrder
         ListSaleInProduct = listSaleInProduct ?? new List<SaleInProduct>();
         TotalPrice = totalPrice;
     }
+
+    public override string ToString() =>
+    $"ProductId: {ProductId}, ProductName: {ProductName}, BasePrice: {BasePrice}, TotalPrice: {TotalPrice}, AmountInOrder: {AmountInOrder}, ListSaleInProduct: {ListSaleInProduct}";
+
 }

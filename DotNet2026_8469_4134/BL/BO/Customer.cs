@@ -16,5 +16,9 @@ public class Customer
         Address = address;
         Phone = phone;
     }
+
+    public override string ToString() =>
+    $"Id: {Id}, Name: {Name}, Address: {Address}, Phone: {Phone}";
+
 }
 

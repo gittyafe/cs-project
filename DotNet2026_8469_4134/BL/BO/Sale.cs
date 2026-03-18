@@ -25,5 +25,8 @@ public class Sale
         StartSale = startSale;
         EndSale = endSale;
     }
+
+    public override string ToString() =>
+    $"Id: {Id}, ProductId: {ProductId}, QuantityRequired: {QuantityRequired}, TotalPrice: {TotalPrice}, IsOnlyClub: {IsOnlyClub}, StartSale: {StartSale}, EndSale: {EndSale}";
 }
 

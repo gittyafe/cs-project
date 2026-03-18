@@ -1,4 +1,6 @@
-﻿namespace BO;
+﻿using DO;
+
+namespace BO;
 
 public class SaleInProduct
 {
@@ -16,4 +18,7 @@ public class SaleInProduct
         Price = price;
         IsOnlyClub = isOnlyClub;
     }
+
+    public override string ToString() =>
+    $"SaleId: {SaleId}, AmountForSale: {AmountForSale}, Price: {Price}, IsOnlyClub: {IsOnlyClub}";
 }

@@ -3,6 +3,7 @@
 namespace BO;
 
 using System.Collections.Generic;
+using System.Xml.Linq;
 
 public class Order
 {
@@ -18,5 +19,9 @@ public class Order
         ProductsInOrder = productsInOrder ?? new List<ProductInOrder>();
         FinalPrice = finalPrice;
     }
+
+    public override string ToString() =>
+    $"IsPreferredCustomer: {IsPreferredCustomer}, ProductsInOrder: {ProductsInOrder}, FinalPrice: {FinalPrice}";
+
 }
 
