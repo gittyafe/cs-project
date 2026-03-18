@@ -10,7 +10,7 @@ namespace Dal
         public int Create(Customer item)
         {
             XElement customersXml = XElement.Load(fileCustomers);
-            customersXml.Element("ArrayOfSale").Add
+            customersXml.Element("ArrayOfCustomer").Add
 
 
             return
