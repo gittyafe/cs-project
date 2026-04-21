@@ -26,3 +26,12 @@ public class BlException : Exception
                 : base(message, innerException) { }
 
 }
+
+[Serializable]
+public class BlNotEnoughInStackException : Exception
+{
+    public BlNotEnoughInStackException(string? message) : base(message) { }
+    public BlNotEnoughInStackException(string message, Exception innerException)
+                : base(message, innerException) { }
+
+}
