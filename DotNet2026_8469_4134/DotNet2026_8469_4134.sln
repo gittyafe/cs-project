@@ -13,12 +13,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tools", "Tools\Tools.csproj
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "xml", "xml", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 	ProjectSection(SolutionItems) = preProject
+		xml\customers.xml = xml\customers.xml
 		xml\dal-config.xml = xml\dal-config.xml
+		xml\data-config.xml = xml\data-config.xml
+		xml\products.xml = xml\products.xml
+		xml\sales.xml = xml\sales.xml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{7C29512F-61EB-4F26-9B44-DCEF158A04F1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlTest", "BlTest\BlTest.csproj", "{4ADABEEC-D559-4A41-A2EB-C88967954296}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{9747AAA9-2AF0-44AC-A081-D10D4C4763CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,6 +56,10 @@ Global
 		{4ADABEEC-D559-4A41-A2EB-C88967954296}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4ADABEEC-D559-4A41-A2EB-C88967954296}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4ADABEEC-D559-4A41-A2EB-C88967954296}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9747AAA9-2AF0-44AC-A081-D10D4C4763CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9747AAA9-2AF0-44AC-A081-D10D4C4763CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9747AAA9-2AF0-44AC-A081-D10D4C4763CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9747AAA9-2AF0-44AC-A081-D10D4C4763CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
