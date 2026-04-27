@@ -7,10 +7,10 @@ using System.Xml.Serialization;
 
 namespace Dal;
 
-internal class SaleImplementantion:ISale
+internal class SaleImplementation:ISale
 {
-    private readonly string fileSales = "sales";
-    private readonly string fileConfig = "data-config";
+    private readonly string fileSales = @"..\xml\sales.xml";
+    private readonly string fileConfig = @"..\xml\data-config.xml";
 
     private List<Sale> Load()
     {
