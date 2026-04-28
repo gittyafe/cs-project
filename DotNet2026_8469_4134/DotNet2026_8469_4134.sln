@@ -26,6 +26,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlTest", "BlTest\BlTest.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{9747AAA9-2AF0-44AC-A081-D10D4C4763CE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DalXml", "DalXml\DalXml.csproj", "{8BA10A13-5F49-027B-C99E-77A6D7C9943B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,6 +62,10 @@ Global
 		{9747AAA9-2AF0-44AC-A081-D10D4C4763CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9747AAA9-2AF0-44AC-A081-D10D4C4763CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9747AAA9-2AF0-44AC-A081-D10D4C4763CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BA10A13-5F49-027B-C99E-77A6D7C9943B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BA10A13-5F49-027B-C99E-77A6D7C9943B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BA10A13-5F49-027B-C99E-77A6D7C9943B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BA10A13-5F49-027B-C99E-77A6D7C9943B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

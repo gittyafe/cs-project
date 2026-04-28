@@ -19,7 +19,10 @@ public class Program
     {
         try
         {
-            Initialization.initialize();
+            Console.WriteLine("insert to initialize... YES - 1/NO - 0");
+            int c = int.Parse(Console.ReadLine());
+            if (c == 1)
+                Initialization.initialize();
         }
         catch (DalNotExistException e)
         {
