@@ -12,12 +12,12 @@ internal class CustomerImplementation : ICustomer
     public int Create(Customer item)
     {
         XElement customersXml = XElement.Load(fileCustomers);
-        customersXml.Element("ArrayOfCustomer").Add(new XElement("Customer", "ggg"));
-            //        new XElement("Id", item.Id),
-            //        new XElement("Name", item.Name),
-            //        new XElement("Address", item.Address),
-            //        new XElement("Phone", item.Phone)       
-            //));
+        customersXml.Add(new XElement("Customer",
+            new XElement("Id", item.Id),    
+            new XElement("Name", item.Name),
+            new XElement("Address", item.Address),
+            new XElement("Phone", item.Phone)
+        ));
 
         customersXml.Save(fileCustomers);
         return item.Id;

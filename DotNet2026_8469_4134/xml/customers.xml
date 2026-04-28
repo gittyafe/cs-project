@@ -1,4 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ArrayOfCustomer>
-	
+  <Customer>
+    <Id>12</Id>
+    <Name>23</Name>
+    <Address>2</Address>
+    <Phone>2</Phone>
+  </Customer>
 </ArrayOfCustomer>
