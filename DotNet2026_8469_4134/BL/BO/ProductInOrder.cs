@@ -25,6 +25,6 @@ public class ProductInOrder
     }
 
     public override string ToString() =>
-    $"ProductId: {ProductId}, ProductName: {ProductName}, BasePrice: {BasePrice}, TotalPrice: {TotalPrice}, AmountInOrder: {AmountInOrder}, ListSaleInProduct: {ListSaleInProduct}";
+    this.ToStringProperty();
 
 }

@@ -1,5 +1,5 @@
 ﻿namespace BO;
-
+using static BO.Tools;
 public class Customer
 {
     public int Id { get; set; }
@@ -18,7 +18,7 @@ public class Customer
     }
 
     public override string ToString() =>
-    $"Id: {Id}, Name: {Name}, Address: {Address}, Phone: {Phone}";
+    this.ToStringProperty();
 
 }
 

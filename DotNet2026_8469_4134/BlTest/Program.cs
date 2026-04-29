@@ -17,25 +17,25 @@ class Program
 
     private static void main_menu()
     {
-        try
-        {
-            Initialization.initialize();
-        }
-        catch (BlNotExistException e)
-        {
-            Console.WriteLine(e.Message);
-            LogManager.writeLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"Initialization failed: {e.Message}");
-        }
-        catch (BlAlreadyExistException e)
-        {
-            Console.WriteLine(e.Message);
-            LogManager.writeLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"Initialization failed: {e.Message}");
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e.Message);
-            LogManager.writeLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"Initialization failed: {e.Message}");
-        }
+        //try
+        //{
+        //    Initialization.initialize();
+        //}
+        //catch (BlNotExistException e)
+        //{
+        //    Console.WriteLine(e.Message);
+        //    LogManager.writeLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"Initialization failed: {e.Message}");
+        //}
+        //catch (BlAlreadyExistException e)
+        //{
+        //    Console.WriteLine(e.Message);
+        //    LogManager.writeLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"Initialization failed: {e.Message}");
+        //}
+        //catch (Exception e)
+        //{
+        //    Console.WriteLine(e.Message);
+        //    LogManager.writeLog(MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name, $"Initialization failed: {e.Message}");
+        //}
         int num1 = 0;
         try
         {

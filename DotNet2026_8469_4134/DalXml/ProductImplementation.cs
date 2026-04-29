@@ -37,7 +37,7 @@ internal class ProductImplementation : IProduct
     public int Create(DO.Product product)
     {
         List<Product> list = Load();
-        
+  
         XElement config = XElement.Load(fileConfig);
         int nextId = int.Parse(config.Element("ProductNum").Value);
 
@@ -62,11 +62,10 @@ internal class ProductImplementation : IProduct
         return result;
     }
 
-    public IEnumerable<Product?> ReadAll(Func<Product, bool>? filter = null)
+    public List<Product> ReadAll(Func<Product, bool> filter)
     {
         List<Product> list = Load();
-        if (filter == null) return list;
-        return list.Where(filter);
+        return list.Where(filter).ToList();
     }
 
     public void Update(DO.Product product)

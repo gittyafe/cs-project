@@ -21,7 +21,7 @@ public class Order
     }
 
     public override string ToString() =>
-    $"IsPreferredCustomer: {IsPreferredCustomer}, ProductsInOrder: {ProductsInOrder}, FinalPrice: {FinalPrice}";
+            this.ToStringProperty();
 
 }
 

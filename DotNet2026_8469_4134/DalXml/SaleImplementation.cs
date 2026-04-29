@@ -35,15 +35,12 @@ internal class SaleImplementation:ISale
     public int Create(Sale item)
     {
         List<Sale> list = Load();
-        if (list.FirstOrDefault(x=>x.Id== item.Id) != null)
-        {
-            throw new DalAlreadyExistException("there is already a sale with id " + item.Id);
-        }
+      
         XElement saleConfig = XElement.Load(fileConfig);
         int saleNum = int.Parse(saleConfig.Element("SaleNum").Value);
 
         Sale sale = item with { Id = saleNum };
-        saleConfig.Element("SaleNum").SetValue(saleNum+1);
+        saleConfig.Element("SaleNum").SetValue(saleNum + 1);
         saleConfig.Save(fileConfig);
         list.Add(sale);
         Save(list);

@@ -1,6 +1,7 @@
 ﻿
 using DalApi;
 using DO;
+using System.Collections.Generic;
 using System.Security.Claims;
 using System.Xml.Linq;
 
@@ -11,6 +12,11 @@ internal class CustomerImplementation : ICustomer
     private readonly string fileCustomers = @"..\xml\customers.xml";
     public int Create(Customer item)
     {
+        var list = ReadAll(x=>true);
+        if (list.FirstOrDefault(x => x?.Id == item.Id) != null)
+        {
+            throw new DalAlreadyExistException("there is already a customer with id " + item.Id);
+        }
         XElement customersXml = XElement.Load(fileCustomers);
         customersXml.Add(new XElement("Customer",
             new XElement("Id", item.Id),    
@@ -35,7 +41,10 @@ internal class CustomerImplementation : ICustomer
                 }
                 where filter(cust)
                 select cust;
-
+        if (q == null)
+        {
+            throw new Exception("Customer does not exist with the required condition");
+        }
         return q.FirstOrDefault();
     }
     public List<Customer?> ReadAll(Func<Customer, bool>? filter = null)
@@ -62,6 +71,13 @@ internal class CustomerImplementation : ICustomer
     public void Delete(int id)
     {
         XElement customersXml = XElement.Load(fileCustomers);
+
+        var list = ReadAll(x=>true);
+        if (list.FirstOrDefault(x => x.Id == id) == null)
+        {
+            throw new DalNotExistException("there no customer with id " + id);
+        }
+
         customersXml.Descendants("Id").FirstOrDefault(cid => int.Parse(cid.Value) == id)
               .Parent.Remove();
 

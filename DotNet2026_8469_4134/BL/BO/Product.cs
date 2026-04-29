@@ -26,7 +26,7 @@ public class Product
     }
 
     public override string ToString() =>
-    $"Id: {Id}, Name: {Name}, Category: {Category}, Price: {Price}, QuantityInStack: {QuantityInStack}, ListSaleInProduct: {ListSaleInProduct}";
+    this.ToStringProperty();
 
 }
 
