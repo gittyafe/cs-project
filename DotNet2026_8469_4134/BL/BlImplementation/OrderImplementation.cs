@@ -31,7 +31,6 @@ namespace BlImplementation
             }
             if (!flag)
             {
-                Console.WriteLine("hhhhhhhhh");
                 DO.Product doProduct = _dal.Product.Read(x => x.Id == id);
                 if (doProduct.QuantityInStack < quantity)
                     throw new BO.BlNotEnoughInStackException($"There are only {doProduct.QuantityInStack} items from product {id}.");

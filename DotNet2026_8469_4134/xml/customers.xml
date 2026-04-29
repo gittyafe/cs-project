@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfCustomer>
+  <Customer>
+    <Id>12</Id>
+    <Name>23</Name>
+    <Address>2</Address>
+    <Phone>2</Phone>
+  </Customer>
+  <Customer>
+    <Id>1</Id>
+    <Name>Rivki</Name>
+    <Address>Meromei Sade</Address>
+    <Phone>123456789</Phone>
+  </Customer>
+  <Customer>
+    <Id>2</Id>
+    <Name>Gitty</Name>
+    <Address>Ktsot </Address>
+    <Phone>1357925</Phone>
+  </Customer>
+  <Customer>
+    <Id>3</Id>
+    <Name>Yehudit</Name>
+    <Address>Shaagat arie</Address>
+    <Phone>431221111</Phone>
+  </Customer>
+  <Customer>
+    <Id>4</Id>
+    <Name>Tovi</Name>
+    <Address>Mesilat yosef</Address>
+    <Phone>464575678</Phone>
+  </Customer>
+  <Customer>
+    <Id>16</Id>
+    <Name>Shulamit</Name>
+    <Address>Netivot hamishpat</Address>
+    <Phone>78787878</Phone>
+  </Customer>
+  <Customer>
+    <Id>5</Id>
+    <Name>Dvory</Name>
+    <Address>Rabi Akiva</Address>
+    <Phone>57453243</Phone>
+  </Customer>
+  <Customer>
+    <Id>6</Id>
+    <Name>Tamar</Name>
+    <Address>Petah Tikva</Address>
+    <Phone>235437548</Phone>
+  </Customer>
+  <Customer>
+    <Id>7</Id>
+    <Name>Bina</Name>
+    <Address>Mesilat yosef</Address>
+    <Phone>45636457</Phone>
+  </Customer>
+  <Customer>
+    <Id>8</Id>
+    <Name>Shosh</Name>
+    <Address>Rashbi</Address>
+    <Phone>7456634</Phone>
+  </Customer>
+  <Customer>
+    <Id>9</Id>
+    <Name>Tsipora</Name>
+    <Address>Meromei Sade</Address>
+    <Phone>6547568</Phone>
+  </Customer>
+  <Customer>
+    <Id>10</Id>
+    <Name>Yael</Name>
+    <Address>Chazon david</Address>
+    <Phone>42556578</Phone>
+  </Customer>
+  <Customer>
+    <Id>11</Id>
+    <Name>Shimon</Name>
+    <Address>Yatkovski 7</Address>
+    <Phone>6435342</Phone>
+  </Customer>
+  <Customer>
+    <Id>12</Id>
+    <Name>David</Name>
+    <Address>Mesilat</Address>
+    <Phone>3534645</Phone>
+  </Customer>
+  <Customer>
+    <Id>13</Id>
+    <Name>Kobi</Name>
+    <Address>Meromei Sade</Address>
+    <Phone>657658</Phone>
+  </Customer>
+  <Customer>
+    <Id>14</Id>
+    <Name>Reuven</Name>
+    <Address>Rashbi</Address>
+    <Phone>74543</Phone>
+  </Customer>
+  <Customer>
+    <Id>15</Id>
+    <Name>Shosh</Name>
+    <Address>Avney nezer</Address>
+    <Phone>534465768</Phone>
+  </Customer>
+</ArrayOfCustomer>

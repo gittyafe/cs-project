@@ -6,13 +6,13 @@ using System.Reflection;
 namespace BO;
 internal static class Tools
 {
-    static string ToStringProperty<T>(T obj)
+    internal static string ToStringProperty<T>(this T obj)
     {
         string result = "";
         Type type = obj.GetType();
         foreach (var prop in type.GetProperties())
         {
-            Type propType = prop.PropertyType;
+            Type propType = prop.PropertyType;  
             var value = prop.GetValue(obj);
             if (value == null)
             {
