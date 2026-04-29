@@ -637,4 +637,144 @@
     <Price>9</Price>
     <QuantityInStack>50</QuantityInStack>
   </Product>
+  <Product>
+    <Id>1041</Id>
+    <Name>Rich</Name>
+    <Category>CREAM</Category>
+    <Price>5.5</Price>
+    <QuantityInStack>10</QuantityInStack>
+  </Product>
+  <Product>
+    <Id>1042</Id>
+    <Name>Blueberry</Name>
+    <Category>CREAM</Category>
+    <Price>12</Price>
+    <QuantityInStack>20</QuantityInStack>
+  </Product>
+  <Product>
+    <Id>1043</Id>
+    <Name>Crystal Sugar</Name>
+    <Category>DECORATION</Category>
+    <Price>6</Price>
+    <QuantityInStack>30</QuantityInStack>
+  </Product>
+  <Product>
+    <Id>1044</Id>
+    <Name>pearl candys</Name>
+    <Category>DECORATION</Category>
+    <Price>6</Price>
+    <QuantityInStack>18</QuantityInStack>
+  </Product>
+  <Product>
+    <Id>1045</Id>
+    <Name>Crocnet</Name>
+    <Category>NUTS</Category>
+    <Price>8</Price>
+    <QuantityInStack>15</QuantityInStack>
+  </Product>
+  <Product>
+    <Id>1046</Id>
+    <Name>Pecans</Name>
+    <Category>NUTS</Category>
+    <Price>9</Price>
+    <QuantityInStack>10</QuantityInStack>
+  </Product>
+  <Product>
+    <Id>1047</Id>
+    <Name>Jelly</Name>
+    <Category>POWDER</Category>
+    <Price>3.5</Price>
+    <QuantityInStack>30</QuantityInStack>
+  </Product>
+  <Product>
+    <Id>1048</Id>
+    <Name>Baking Powder</Name>
+    <Category>POWDER</Category>
+    <Price>2.5</Price>
+    <QuantityInStack>50</QuantityInStack>
+  </Product>
+  <Product>
+    <Id>1049</Id>
+    <Name>White chocolate</Name>
+    <Category>CHOCOLATE</Category>
+    <Price>8</Price>
+    <QuantityInStack>50</QuantityInStack>
+  </Product>
+  <Product>
+    <Id>1050</Id>
+    <Name>Chocolate chips</Name>
+    <Category>CHOCOLATE</Category>
+    <Price>9</Price>
+    <QuantityInStack>50</QuantityInStack>
+  </Product>
+  <Product>
+    <Id>1091</Id>
+    <Name>Rich</Name>
+    <Category>CREAM</Category>
+    <Price>5.5</Price>
+    <QuantityInStack>10</QuantityInStack>
+  </Product>
+  <Product>
+    <Id>1092</Id>
+    <Name>Blueberry</Name>
+    <Category>CREAM</Category>
+    <Price>12</Price>
+    <QuantityInStack>20</QuantityInStack>
+  </Product>
+  <Product>
+    <Id>1093</Id>
+    <Name>Crystal Sugar</Name>
+    <Category>DECORATION</Category>
+    <Price>6</Price>
+    <QuantityInStack>30</QuantityInStack>
+  </Product>
+  <Product>
+    <Id>1094</Id>
+    <Name>pearl candys</Name>
+    <Category>DECORATION</Category>
+    <Price>6</Price>
+    <QuantityInStack>18</QuantityInStack>
+  </Product>
+  <Product>
+    <Id>1095</Id>
+    <Name>Crocnet</Name>
+    <Category>NUTS</Category>
+    <Price>8</Price>
+    <QuantityInStack>15</QuantityInStack>
+  </Product>
+  <Product>
+    <Id>1096</Id>
+    <Name>Pecans</Name>
+    <Category>NUTS</Category>
+    <Price>9</Price>
+    <QuantityInStack>10</QuantityInStack>
+  </Product>
+  <Product>
+    <Id>1097</Id>
+    <Name>Jelly</Name>
+    <Category>POWDER</Category>
+    <Price>3.5</Price>
+    <QuantityInStack>30</QuantityInStack>
+  </Product>
+  <Product>
+    <Id>1098</Id>
+    <Name>Baking Powder</Name>
+    <Category>POWDER</Category>
+    <Price>2.5</Price>
+    <QuantityInStack>50</QuantityInStack>
+  </Product>
+  <Product>
+    <Id>1099</Id>
+    <Name>White chocolate</Name>
+    <Category>CHOCOLATE</Category>
+    <Price>8</Price>
+    <QuantityInStack>50</QuantityInStack>
+  </Product>
+  <Product>
+    <Id>1100</Id>
+    <Name>Chocolate chips</Name>
+    <Category>CHOCOLATE</Category>
+    <Price>9</Price>
+    <QuantityInStack>50</QuantityInStack>
+  </Product>
 </ArrayOfProduct>
