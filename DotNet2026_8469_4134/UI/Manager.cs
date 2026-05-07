@@ -16,5 +16,11 @@ namespace UI
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            EntityManager entityManager = new EntityManager();
+            entityManager.ShowDialog();
+        }
     }
 }

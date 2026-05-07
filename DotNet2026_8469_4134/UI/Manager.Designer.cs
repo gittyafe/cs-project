@@ -28,12 +28,56 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Manager";
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
+            SuspendLayout();
+            // 
+            // button1
+            // 
+            button1.Location = new Point(510, 110);
+            button1.Name = "button1";
+            button1.Size = new Size(131, 190);
+            button1.TabIndex = 0;
+            button1.Text = "לקוחות";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(333, 110);
+            button2.Name = "button2";
+            button2.Size = new Size(129, 190);
+            button2.TabIndex = 1;
+            button2.Text = "מוצרים";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(158, 110);
+            button3.Name = "button3";
+            button3.Size = new Size(129, 190);
+            button3.TabIndex = 2;
+            button3.Text = "מבצעים";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // Manager
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(button3);
+            Controls.Add(button2);
+            Controls.Add(button1);
+            Name = "Manager";
+            Text = "Manager";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Button button1;
+        private Button button2;
+        private Button button3;
     }
 }
