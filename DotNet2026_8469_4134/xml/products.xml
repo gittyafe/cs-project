@@ -5,35 +5,35 @@
     <Name>Rich</Name>
     <Category>CREAM</Category>
     <Price>5.5</Price>
-    <QuantityInStack>-10</QuantityInStack>
+    <QuantityInStack>0</QuantityInStack>
   </Product>
   <Product>
     <Id>1001</Id>
     <Name>Blueberry</Name>
     <Category>CREAM</Category>
     <Price>12</Price>
-    <QuantityInStack>20</QuantityInStack>
+    <QuantityInStack>18</QuantityInStack>
   </Product>
   <Product>
     <Id>1002</Id>
     <Name>Crystal Sugar</Name>
     <Category>DECORATION</Category>
     <Price>6</Price>
-    <QuantityInStack>30</QuantityInStack>
+    <QuantityInStack>28</QuantityInStack>
   </Product>
   <Product>
     <Id>1003</Id>
     <Name>pearl candys</Name>
     <Category>DECORATION</Category>
     <Price>6</Price>
-    <QuantityInStack>18</QuantityInStack>
+    <QuantityInStack>14</QuantityInStack>
   </Product>
   <Product>
     <Id>1004</Id>
     <Name>Crocnet</Name>
     <Category>NUTS</Category>
     <Price>8</Price>
-    <QuantityInStack>15</QuantityInStack>
+    <QuantityInStack>12</QuantityInStack>
   </Product>
   <Product>
     <Id>1005</Id>
@@ -54,42 +54,42 @@
     <Name>Baking Powder</Name>
     <Category>POWDER</Category>
     <Price>2.5</Price>
-    <QuantityInStack>50</QuantityInStack>
+    <QuantityInStack>47</QuantityInStack>
   </Product>
   <Product>
     <Id>1008</Id>
     <Name>White chocolate</Name>
     <Category>CHOCOLATE</Category>
     <Price>8</Price>
-    <QuantityInStack>50</QuantityInStack>
+    <QuantityInStack>47</QuantityInStack>
   </Product>
   <Product>
     <Id>1009</Id>
     <Name>Chocolate chips</Name>
     <Category>CHOCOLATE</Category>
     <Price>9</Price>
-    <QuantityInStack>50</QuantityInStack>
+    <QuantityInStack>49</QuantityInStack>
   </Product>
   <Product>
     <Id>1010</Id>
     <Name>12</Name>
     <Category>CREAM</Category>
     <Price>21</Price>
-    <QuantityInStack>21</QuantityInStack>
+    <QuantityInStack>19</QuantityInStack>
   </Product>
   <Product>
     <Id>1011</Id>
     <Name>Rich</Name>
     <Category>CREAM</Category>
     <Price>5.5</Price>
-    <QuantityInStack>10</QuantityInStack>
+    <QuantityInStack>9</QuantityInStack>
   </Product>
   <Product>
     <Id>1012</Id>
     <Name>Blueberry</Name>
     <Category>CREAM</Category>
     <Price>12</Price>
-    <QuantityInStack>20</QuantityInStack>
+    <QuantityInStack>19</QuantityInStack>
   </Product>
   <Product>
     <Id>1013</Id>
