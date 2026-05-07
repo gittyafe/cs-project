@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
-	<xml>xml</xml>
-	<!--היה בהתחלה תווית <dal>!!!!!!????? -->
+	<dal>xml</dal>
 	<dal-packages>
 		<list>DalList</list>
 		<xml>DalXml</xml>
