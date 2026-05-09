@@ -28,12 +28,55 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Cashier";
+            buttonOKToCustID = new Button();
+            labelToInsertCustID = new Label();
+            textBoxCustID = new TextBox();
+            SuspendLayout();
+            // 
+            // buttonOKToCustID
+            // 
+            buttonOKToCustID.Location = new Point(409, 289);
+            buttonOKToCustID.Name = "buttonOKToCustID";
+            buttonOKToCustID.Size = new Size(94, 29);
+            buttonOKToCustID.TabIndex = 0;
+            buttonOKToCustID.Text = "אישור";
+            buttonOKToCustID.UseVisualStyleBackColor = true;
+            buttonOKToCustID.Click += buttonOKToCustID_Click;
+            // 
+            // labelToInsertCustID
+            // 
+            labelToInsertCustID.AutoSize = true;
+            labelToInsertCustID.Location = new Point(370, 122);
+            labelToInsertCustID.Name = "labelToInsertCustID";
+            labelToInsertCustID.Size = new Size(193, 20);
+            labelToInsertCustID.TabIndex = 1;
+            labelToInsertCustID.Text = "הכנס תעודת זהות של הלקוח";
+            // 
+            // textBoxCustID
+            // 
+            textBoxCustID.Location = new Point(395, 205);
+            textBoxCustID.Name = "textBoxCustID";
+            textBoxCustID.Size = new Size(125, 27);
+            textBoxCustID.TabIndex = 2;
+            // 
+            // Cashier
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(textBoxCustID);
+            Controls.Add(labelToInsertCustID);
+            Controls.Add(buttonOKToCustID);
+            Name = "Cashier";
+            Text = "Cashier";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Button buttonOKToCustID;
+        private Label labelToInsertCustID;
+        private TextBox textBoxCustID;
     }
 }
