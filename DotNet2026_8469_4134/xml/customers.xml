@@ -1,18 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ArrayOfCustomer>
   <Customer>
-    <Id>12</Id>
-    <Name>23</Name>
-    <Address>2</Address>
-    <Phone>2</Phone>
-  </Customer>
-  <Customer>
-    <Id>1</Id>
-    <Name>Rivki</Name>
-    <Address>Meromei Sade</Address>
-    <Phone>123456789</Phone>
-  </Customer>
-  <Customer>
     <Id>2</Id>
     <Name>Gitty</Name>
     <Address>Ktsot </Address>
@@ -101,5 +89,11 @@
     <Name>Shosh</Name>
     <Address>Avney nezer</Address>
     <Phone>534465768</Phone>
+  </Customer>
+  <Customer>
+    <Id>1</Id>
+    <Name>Rivki</Name>
+    <Address>Meromei Sade</Address>
+    <Phone>123</Phone>
   </Customer>
 </ArrayOfCustomer>

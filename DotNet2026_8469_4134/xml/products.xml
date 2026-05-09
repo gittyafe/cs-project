@@ -774,7 +774,14 @@
     <Id>1100</Id>
     <Name>Chocolate chips</Name>
     <Category>CHOCOLATE</Category>
-    <Price>9</Price>
+    <Price>7</Price>
     <QuantityInStack>50</QuantityInStack>
+  </Product>
+  <Product>
+    <Id>1151</Id>
+    <Name>12</Name>
+    <Category>NUTS</Category>
+    <Price>2</Price>
+    <QuantityInStack>12</QuantityInStack>
   </Product>
 </ArrayOfProduct>
