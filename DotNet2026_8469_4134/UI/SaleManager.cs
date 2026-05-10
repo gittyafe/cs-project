@@ -106,12 +106,22 @@ namespace UI
                 BindSales();
                 return;
             }
+            var item = s_sale.Read(x => x.Id.ToString() == textBox1.Text);
+            if (item != null)
+            {
+                _bindingSource.DataSource = new BindingList<Sale>(new[] { item });
+            }
+            else
+            {
+                _bindingSource.DataSource = new BindingList<Sale>();
+            }
 
-            var items = s_sale.ReadAll(x => true)
-                .Where(c => c.Id.ToString().StartsWith(textBox1.Text))
-                .OrderBy(c => c.Id)
-                .ToList();
-            _bindingSource.DataSource = new BindingList<Sale>(items);
+            //ReadAll - for filtering of 'StartWith...'
+            //var items = s_sale.ReadAll(x => true)
+            //    .Where(c => c.Id.ToString().StartsWith(textBox1.Text))
+            //    .OrderBy(c => c.Id)
+            //    .ToList();
+            //_bindingSource.DataSource = new BindingList<Sale>(items);
         }
 
         private void button4_Click(object sender, EventArgs e)

@@ -106,12 +106,22 @@ namespace UI
                 BindProducts();
                 return;
             }
+            var item = s_product.Read(x => x.Id.ToString() == textBox1.Text);
+            if (item != null)
+            {
+                _bindingSource.DataSource = new BindingList<Product>(new[] { item });
+            }
+            else
+            {
+                _bindingSource.DataSource = new BindingList<Product>();
+            }
 
-            var items = s_product.ReadAll(x => true)
-                .Where(c => c.Id.ToString().StartsWith(textBox1.Text))
-                .OrderBy(c => c.Id)
-                .ToList();
-            _bindingSource.DataSource = new BindingList<Product>(items);
+            //ReadAll - for filtering of 'StartWith...':
+            //var items = s_product.ReadAll(x => true)
+            //    .Where(c => c.Id.ToString().StartsWith(textBox1.Text))
+            //    .OrderBy(c => c.Id)
+            //    .ToList();
+            //_bindingSource.DataSource = new BindingList<Product>(items);
         }
 
         private void button4_Click(object sender, EventArgs e)

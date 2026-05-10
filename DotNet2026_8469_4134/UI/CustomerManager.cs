@@ -129,12 +129,22 @@ namespace UI
                 BindCustomers();
                 return;
             }
+            var item = s_customer.Read(x => x.Id.ToString() == textBox1.Text);
+            if (item != null)
+            {
+                _bindingSource.DataSource = new BindingList<Customer>(new[] { item });
+            }
+            else
+            {
+                _bindingSource.DataSource = new BindingList<Customer>();
+            }
 
-            var items = s_customer.ReadAll(x => true)
-                .Where(c => c.Id.ToString().StartsWith(textBox1.Text))
-                .OrderBy(c => c.Id)
-                .ToList();
-            _bindingSource.DataSource = new BindingList<Customer>(items);
+            //ReadAll - for filtering of 'StartWith...':
+            //var items = s_customer.ReadAll(x => true)
+            //    .Where(c => c.Id.ToString().StartsWith(textBox1.Text))
+            //    .OrderBy(c => c.Id)
+            //    .ToList();
+            //_bindingSource.DataSource = new BindingList<Customer>(items);
         }
 
         // designer event handlers referenced from designer file
