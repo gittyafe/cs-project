@@ -69,7 +69,8 @@ internal static class Tools
             customer.Id,
             customer.Name,
             customer.Address,
-            customer.Phone
+            customer.Phone,
+            customer.IsClub
         );
 
     // המרה מ-BO ל-DO
@@ -78,7 +79,8 @@ internal static class Tools
             customer.Id,
             customer.Name,
             customer.Address,
-            customer.Phone
+            customer.Phone,
+            customer.IsClub
         );
 
     // המרה מ-DO ל-BO

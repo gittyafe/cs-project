@@ -22,7 +22,8 @@ internal class CustomerImplementation : ICustomer
             new XElement("Id", item.Id),    
             new XElement("Name", item.Name),
             new XElement("Address", item.Address),
-            new XElement("Phone", item.Phone)
+            new XElement("Phone", item.Phone),
+            new XElement("IsClub", item.IsClub)
         ));
 
         customersXml.Save(fileCustomers);
@@ -37,14 +38,11 @@ internal class CustomerImplementation : ICustomer
                     Id = int.Parse(c.Element("Id").Value),
                     Name = c.Element("Name").Value,
                     Address = c.Element("Address").Value,
-                    Phone = c.Element("Phone").Value
+                    Phone = c.Element("Phone").Value,
+                    IsClub = bool.Parse(c.Element("IsClub")?.Value ?? "false")
                 }
                 where filter(cust)
                 select cust;
-        if (q == null)
-        {
-            throw new Exception("Customer does not exist with the required condition");
-        }
         return q.FirstOrDefault();
     }
     public List<Customer?> ReadAll(Func<Customer, bool>? filter = null)
@@ -52,13 +50,14 @@ internal class CustomerImplementation : ICustomer
         XElement customersXml = XElement.Load(fileCustomers);
         var q = from c in customersXml.Descendants("Customer")
                 let cust = new Customer()
-                {
-                    Id = int.Parse(c.Element("Id").Value),
-                    Name = c.Element("Name").Value,
-                    Address = c.Element("Address").Value,
-                    Phone = c.Element("Phone").Value
+{
+    Id = int.Parse(c.Element("Id").Value),
+    Name = c.Element("Name").Value,
+    Address = c.Element("Address").Value,
+    Phone = c.Element("Phone").Value,
+    IsClub = bool.Parse(c.Element("IsClub")?.Value ?? "false")
                 }
-                where filter(cust)
+                where filter == null || filter(cust)
                 select cust;
 
         return q.ToList();

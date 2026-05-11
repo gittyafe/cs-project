@@ -19,7 +19,7 @@
     <Name>Crystal Sugar</Name>
     <Category>DECORATION</Category>
     <Price>6</Price>
-    <QuantityInStack>14</QuantityInStack>
+    <QuantityInStack>12</QuantityInStack>
   </Product>
   <Product>
     <Id>1003</Id>
@@ -33,7 +33,7 @@
     <Name>Crocnet</Name>
     <Category>NUTS</Category>
     <Price>8</Price>
-    <QuantityInStack>10</QuantityInStack>
+    <QuantityInStack>6</QuantityInStack>
   </Product>
   <Product>
     <Id>1005</Id>
@@ -75,7 +75,7 @@
     <Name>12</Name>
     <Category>CREAM</Category>
     <Price>21</Price>
-    <QuantityInStack>19</QuantityInStack>
+    <QuantityInStack>18</QuantityInStack>
   </Product>
   <Product>
     <Id>1011</Id>
@@ -89,14 +89,14 @@
     <Name>Blueberry</Name>
     <Category>CREAM</Category>
     <Price>12</Price>
-    <QuantityInStack>19</QuantityInStack>
+    <QuantityInStack>18</QuantityInStack>
   </Product>
   <Product>
     <Id>1013</Id>
     <Name>Crystal Sugar</Name>
     <Category>DECORATION</Category>
     <Price>6</Price>
-    <QuantityInStack>28</QuantityInStack>
+    <QuantityInStack>27</QuantityInStack>
   </Product>
   <Product>
     <Id>1014</Id>
@@ -110,7 +110,7 @@
     <Name>Crocnet</Name>
     <Category>NUTS</Category>
     <Price>8</Price>
-    <QuantityInStack>14</QuantityInStack>
+    <QuantityInStack>13</QuantityInStack>
   </Product>
   <Product>
     <Id>1016</Id>
@@ -131,7 +131,7 @@
     <Name>Baking Powder</Name>
     <Category>POWDER</Category>
     <Price>2.5</Price>
-    <QuantityInStack>50</QuantityInStack>
+    <QuantityInStack>47</QuantityInStack>
   </Product>
   <Product>
     <Id>1019</Id>
@@ -341,7 +341,7 @@
     <Name>Baking Powder</Name>
     <Category>POWDER</Category>
     <Price>2.5</Price>
-    <QuantityInStack>50</QuantityInStack>
+    <QuantityInStack>49</QuantityInStack>
   </Product>
   <Product>
     <Id>1049</Id>

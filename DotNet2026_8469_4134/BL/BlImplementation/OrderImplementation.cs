@@ -1,8 +1,9 @@
 ﻿using BlApi;
 using BO;
-using static BO.Tools;
 using DalApi;
 using DO;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace BlImplementation
@@ -11,27 +12,26 @@ namespace BlImplementation
     {
         private DalApi.IDal _dal = DalApi.Factory.Get;
 
+        // ================= ADD PRODUCT =================
         public List<BO.SaleInProduct> AddProductToOrder(BO.Order order, int id, int quantity)
         {
-            BO.ProductInOrder p;
-
             var existing = order.ProductsInOrder
                 .FirstOrDefault(x => x.ProductId == id);
 
             DO.Product doProduct = _dal.Product.Read(x => x.Id == id);
 
             if (doProduct.QuantityInStack < quantity)
-                    throw new BO.BlNotEnoughInStackException(
-                    $"There are only {doProduct.QuantityInStack} items from product {id}.");
+                throw new BO.BlNotEnoughInStackException(
+                    $"רק {doProduct.QuantityInStack} נשאר במלאי");
+
+            BO.ProductInOrder p;
 
             if (existing != null)
             {
                 if (doProduct.QuantityInStack < existing.AmountInOrder + quantity)
-                    throw new BO.BlNotEnoughInStackException(
-                        $"There are only {doProduct.QuantityInStack} items from product {id}.");
+                    throw new BO.BlNotEnoughInStackException("אין מספיק מלאי");
 
                 existing.AmountInOrder += quantity;
-
                 p = existing;
             }
             else
@@ -43,56 +43,56 @@ namespace BlImplementation
                     quantity,
                     new List<SaleInProduct>()
                 );
+
+                order.ProductsInOrder.Add(p);
             }
 
+            // 🔥 חשוב: קודם מבצעים חיפוש מבצעים לפי מועדון
             SearchSaleForProduct(p, order.IsClub);
-            CalcTotalPriceForProduct(p);
 
-            if (existing == null)
-                order.ProductsInOrder.Add(p);
+            // ואז מחשבים מחיר
+            CalcTotalPriceForProduct(p);
 
             CalcTotalPrice(order);
 
             return p.ListSaleInProduct;
         }
 
+        // ================= TOTAL ORDER =================
         public void CalcTotalPrice(BO.Order order)
         {
-            order.FinalPrice = 0;
-
-            foreach (var p in order.ProductsInOrder)
-            {
-                order.FinalPrice += p.TotalPrice;
-            }
+            order.FinalPrice = order.ProductsInOrder.Sum(p => p.TotalPrice);
         }
 
+        // ================= FINALIZE ORDER =================
         public void DoOrder(BO.Order order)
         {
             foreach (var p in order.ProductsInOrder)
             {
-                DO.Product doproduct = _dal.Product.Read(x => x.Id == p.ProductId);
+                DO.Product product = _dal.Product.Read(x => x.Id == p.ProductId);
 
-                if (doproduct.QuantityInStack < p.AmountInOrder)
-                    throw new BO.BlNotEnoughInStackException(
-                        $"Not enough stock for product {p.ProductId}");
+                if (product.QuantityInStack < p.AmountInOrder)
+                    throw new BO.BlNotEnoughInStackException("Not enough stock");
 
                 _dal.Product.Update(
-                    doproduct with
+                    product with
                     {
-                        QuantityInStack = doproduct.QuantityInStack - p.AmountInOrder
+                        QuantityInStack = product.QuantityInStack - p.AmountInOrder
                     }
                 );
             }
         }
 
+        // ================= CALCULATE PRODUCT PRICE =================
         public void CalcTotalPriceForProduct(BO.ProductInOrder product)
         {
             double total = 0;
-            List<SaleInProduct> usedSales = new List<SaleInProduct>();
             int count = product.AmountInOrder;
 
+            var usedSales = new List<SaleInProduct>();
+
             foreach (var sale in product.ListSaleInProduct
-                .OrderBy(s => s.Price / s.AmountForSale))
+                .OrderBy(s => s.Price / (double)s.AmountForSale))
             {
                 if (count < sale.AmountForSale)
                     continue;
@@ -114,37 +114,29 @@ namespace BlImplementation
             product.ListSaleInProduct = usedSales;
         }
 
-        public void SearchSaleForProduct(BO.ProductInOrder product, bool isFavorite)
+        // ================= FIND SALES =================
+        public void SearchSaleForProduct(BO.ProductInOrder product, bool isClub)
         {
-            try
+            var sales = _dal.Sale.ReadAll(s => s.ProductId == product.ProductId)
+                .Where(s =>
+                    s.StartSale <= DateTime.Now &&
+                    s.EndSale >= DateTime.Now);
+
+            // 🔥 רק אם לא מועדון - מסננים מבצעי מועדון
+            if (!isClub)
             {
-                var sales = _dal.Sale.ReadAll(s => s.ProductId == product.ProductId)
-                    .Where(s =>
-                        s.StartSale <= DateTime.Now &&
-                        s.EndSale >= DateTime.Now &&
-                        product.AmountInOrder >= s.QuantityRequired);
+                sales = sales.Where(s => !s.IsOnlyClub);
+            }
 
-                if (!isFavorite)
-                {
-                    sales = sales.Where(s => s.IsOnlyClub == false);
-                }
-
-                sales = sales.OrderBy(s => s.TotalPrice / s.QuantityRequired);
-
-                var result = sales.Select(s => new BO.SaleInProduct
+            product.ListSaleInProduct = sales
+                .Select(s => new BO.SaleInProduct
                 {
                     SaleId = s.Id,
                     AmountForSale = s.QuantityRequired,
                     Price = s.TotalPrice,
                     IsOnlyClub = s.IsOnlyClub
-                });
-
-                product.ListSaleInProduct = result.ToList();
-            }
-            catch (DO.DalException ex)
-            {
-                throw new BO.BlException("Error reading sales", ex);
-            }
+                })
+                .ToList();
         }
     }
 }

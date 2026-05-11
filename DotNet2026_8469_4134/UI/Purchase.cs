@@ -12,6 +12,7 @@ namespace UI
     public partial class Purchase : Form
     {
         private string _custID;
+        private bool _isClubCustomer = false;
 
         private TextBox textBoxSearch;
         private TextBox textBoxSearchID;
@@ -172,8 +173,26 @@ namespace UI
             bsCart.DataSource = _cart;
             itemList.DataSource = bsCart;
 
-            helloToCust.Text = $"לקוח: {_custID}";
+            try
+            {
+                int id = int.Parse(_custID);
 
+                Customer cust = bl.Customer.Read(c => c.Id == id);
+
+                if (cust != null)
+                {
+                    _isClubCustomer = cust.IsClub;
+
+                    if (_isClubCustomer)
+                        helloToCust.Text = $"שלום {cust.Name} ⭐ חבר מועדון";
+                    else
+                        helloToCust.Text = $"שלום {cust.Name}";
+                }
+            }
+            catch
+            {
+                helloToCust.Text = "לקוח מזדמן";
+            }
             UpdateTotal();
         }
 
@@ -188,51 +207,70 @@ namespace UI
             try
             {
                 var prod = dgvProducts.Rows[e.RowIndex].DataBoundItem as Product;
-                if (prod == null) return;
 
-                bl.Order.AddProductToOrder(
-                    new Order { ProductsInOrder = _cart.ToList() },
-                    prod.Id,
-                    1);
+                if (prod == null)
+                    return;
 
-                var existing = _cart.FirstOrDefault(x => x.ProductId == prod.Id);
-
-                if (existing == null)
+                Order order = new Order
                 {
-                    _cart.Add(new ProductInOrder(
-                        prod.Id,
-                        prod.Name,
-                        prod.Price,
-                        1,
-                        new List<SaleInProduct>()
-                    ));
+                    IsClub = _isClubCustomer,
+                    ProductsInOrder = _cart.ToList()
+                };
+
+                bl.Order.AddProductToOrder(order, prod.Id, 1);
+
+                _cart.Clear();
+
+                foreach (var item in order.ProductsInOrder)
+                {
+                    _cart.Add(item);
                 }
 
                 bsCart.ResetBindings(false);
-                UpdateTotal();
+
+                total.Text = $"סה״כ: {order.FinalPrice:0.00}";
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "אין מלאי", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message,
+                    "אין מלאי",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
             }
         }
-
         // ================= EDIT QUANTITY =================
         private void ItemList_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             var item = itemList.Rows[e.RowIndex].DataBoundItem as ProductInOrder;
-            if (item == null) return;
 
-            if (int.TryParse(item.AmountInOrder.ToString(), out int amount))
+            if (item == null)
+                return;
+
+            try
             {
-                item.AmountInOrder = amount;
+                Order order = new Order
+                {
+                    IsClub = _isClubCustomer,
+                    ProductsInOrder = _cart.ToList()
+                };
 
-                // חישוב מגיע מה-BL בלבד!
-                bl.Order.AddProductToOrder(new Order { ProductsInOrder = _cart.ToList() }, item.ProductId, 0);
+                bl.Order.AddProductToOrder(order, item.ProductId, 0);
+
+                _cart.Clear();
+
+                foreach (var p in order.ProductsInOrder)
+                {
+                    _cart.Add(p);
+                }
+
+                bsCart.ResetBindings(false);
+
+                total.Text = $"סה״כ: {order.FinalPrice:0.00}";
             }
-
-            bsCart.ResetBindings(false);
-            UpdateTotal();
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         // ================= REMOVE =================
@@ -280,6 +318,7 @@ namespace UI
         {
             var order = new Order
             {
+                IsClub = _isClubCustomer,
                 ProductsInOrder = _cart.ToList()
             };
 
