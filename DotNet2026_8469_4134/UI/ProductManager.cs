@@ -33,6 +33,16 @@ namespace UI
         {
             var items = s_product.ReadAll(x => true).OrderBy(p => p.Id);
             _bindingSource.DataSource = new BindingList<Product>(items.ToList());
+            // set Hebrew headers and RTL layout
+            dataGridView1.RightToLeft = RightToLeft.Yes;
+            if (dataGridView1.Columns["Id"] != null) dataGridView1.Columns["Id"].HeaderText = "מ.ז.";
+            if (dataGridView1.Columns["Name"] != null) dataGridView1.Columns["Name"].HeaderText = "שם";
+            if (dataGridView1.Columns["Category"] != null) dataGridView1.Columns["Category"].HeaderText = "קטגוריה";
+            if (dataGridView1.Columns["Price"] != null) dataGridView1.Columns["Price"].HeaderText = "מחיר";
+            if (dataGridView1.Columns["QuantityInStack"] != null) dataGridView1.Columns["QuantityInStack"].HeaderText = "כמות במלאי";
+            dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+         
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -140,7 +150,12 @@ namespace UI
                 _bindingSource.DataSource = new BindingList<Product>(items);
                 button4.Text = "הצג הכל";
             }
-            
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
