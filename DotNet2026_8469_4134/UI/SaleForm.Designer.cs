@@ -169,7 +169,43 @@ namespace UI
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(420, 330);
+            ClientSize = new System.Drawing.Size(460, 380);
+
+            // עיצוב כללי
+            this.BackColor = Color.FromArgb(245, 238, 230);
+            this.Font = new Font("Segoe UI", 10F);
+
+            // תרגום תוויות
+            labelId.Text = "מזהה";
+            labelProductId.Text = "מזהה מוצר";
+            labelQuantityRequired.Text = "כמות למבצע";
+            labelTotalPrice.Text = "מחיר ";
+            labelIsOnlyClub.Text = "מבצע לחברי מועדון בלבד";
+            labelStartSale.Text = "תחילת מבצע";
+            labelEndSale.Text = "סיום מבצע";
+
+            // שדרוג שדות וכפתורים
+            textBoxId.BorderStyle = BorderStyle.FixedSingle;
+            textBoxProductId.BorderStyle = BorderStyle.FixedSingle;
+            textBoxQuantityRequired.BorderStyle = BorderStyle.FixedSingle;
+            textBoxTotalPrice.BorderStyle = BorderStyle.FixedSingle;
+            textBoxStartSale.BorderStyle = BorderStyle.FixedSingle;
+            textBoxEndSale.BorderStyle = BorderStyle.FixedSingle;
+
+            buttonOk.Text = "אישור";
+            buttonOk.BackColor = Color.FromArgb(181, 136, 99);
+            buttonOk.ForeColor = Color.White;
+            buttonOk.FlatStyle = FlatStyle.Flat;
+            buttonOk.FlatAppearance.BorderSize = 0;
+            buttonOk.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+
+            buttonCancel.Text = "ביטול";
+            buttonCancel.BackColor = Color.FromArgb(180, 180, 180);
+            buttonCancel.ForeColor = Color.White;
+            buttonCancel.FlatStyle = FlatStyle.Flat;
+            buttonCancel.FlatAppearance.BorderSize = 0;
+            buttonCancel.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+
             Controls.Add(buttonCancel);
             Controls.Add(buttonOk);
             Controls.Add(textBoxEndSale);
@@ -186,8 +222,9 @@ namespace UI
             Controls.Add(labelProductId);
             Controls.Add(textBoxId);
             Controls.Add(labelId);
+
             Name = "SaleForm";
-            Text = "Sale";
+            Text = "מבצע";
             ResumeLayout(false);
             PerformLayout();
         }

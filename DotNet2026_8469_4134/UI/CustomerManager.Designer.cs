@@ -124,7 +124,9 @@ namespace UI
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(740, 501);
+            ClientSize = new System.Drawing.Size(760, 520);
+
+            // עיצוב כללי תואם לאפליקציה
             Controls.Add(label2);
             Controls.Add(textBox1);
             Controls.Add(label1);

@@ -14,13 +14,45 @@ internal class SaleImplementation:ISale
 
     private List<Sale> Load()
     {
-        List<Sale> list;
-        XmlSerializer serializer = new XmlSerializer(typeof(List<Sale>));
-        using (StreamReader sr = new StreamReader(fileSales))
+        // אם הקובץ לא קיים - צור קובץ ריק עם root מתאים
+        if (!System.IO.File.Exists(fileSales))
         {
-            list = (List<Sale>)serializer.Deserialize(sr);
+            System.IO.File.WriteAllText(fileSales, "<?xml version=\"1.0\" encoding=\"utf-8\"?><ArrayOfSale />");
         }
-        return list.ToList();
+
+        try
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Sale>));
+            using (StreamReader sr = new StreamReader(fileSales))
+            {
+                var result = (List<Sale>)serializer.Deserialize(sr);
+                return result?.ToList() ?? new List<Sale>();
+            }
+        }
+        catch (Exception)
+        {
+            // אם הדסיריאליזציה נכשלה (קובץ שבור/פורמט שונה), ננסה לקרוא ידנית בעזרת XDocument
+            try
+            {
+                var doc = XDocument.Load(fileSales);
+                var list = doc.Descendants("Sale").Select(s => new Sale(
+                    Id: int.Parse(s.Element("Id")?.Value ?? "0"),
+                    ProductId: int.Parse(s.Element("ProductId")?.Value ?? "-1"),
+                    QuantityRequired: int.Parse(s.Element("QuantityRequired")?.Value ?? "0"),
+                    TotalPrice: double.Parse(s.Element("TotalPrice")?.Value ?? "0"),
+                    IsOnlyClub: bool.Parse(s.Element("IsOnlyClub")?.Value ?? "false"),
+                    StartSale: DateTime.Parse(s.Element("StartSale")?.Value ?? DateTime.Now.ToString()),
+                    EndSale: DateTime.Parse(s.Element("EndSale")?.Value ?? DateTime.Now.ToString())
+                )).ToList();
+
+                return list;
+            }
+            catch (Exception)
+            {
+                // אם גם זה נכשל, החזר רשימה ריקה במקום לחרוג
+                return new List<Sale>();
+            }
+        }
     }
 
     private void Save(List<Sale> list)

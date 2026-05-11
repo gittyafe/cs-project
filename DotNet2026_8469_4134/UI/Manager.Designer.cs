@@ -68,11 +68,55 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+
+            // עיצוב כללי תואם לשאר היישום
+            this.BackColor = Color.FromArgb(245, 238, 230);
+            this.Font = new Font("Segoe UI", 10F);
+
+            // כותרת ראשית
+            var title = new Label();
+            title.Text = "מנהל";
+            title.Font = new Font("Segoe UI", 20, FontStyle.Bold);
+            title.ForeColor = Color.FromArgb(90, 70, 60);
+            title.Size = new Size(760, 50);
+            title.Location = new Point(20, 10);
+            title.TextAlign = ContentAlignment.MiddleCenter;
+            Controls.Add(title);
+
+            // כפתורים גדולים וסגנון מודרני
+            button1.Size = new Size(170, 220);
+            button2.Size = new Size(170, 220);
+            button3.Size = new Size(170, 220);
+
+            button1.BackColor = Color.FromArgb(181, 136, 99);
+            button1.ForeColor = Color.White;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.Font = new Font("Segoe UI", 14, FontStyle.Bold);
+
+            button2.BackColor = Color.FromArgb(181, 136, 99);
+            button2.ForeColor = Color.White;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.Font = new Font("Segoe UI", 14, FontStyle.Bold);
+
+            button3.BackColor = Color.FromArgb(181, 136, 99);
+            button3.ForeColor = Color.White;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.FlatAppearance.BorderSize = 0;
+            button3.Font = new Font("Segoe UI", 14, FontStyle.Bold);
+
+            // מיקומים
+            button3.Location = new Point(80, 110);
+            button2.Location = new Point(305, 110);
+            button1.Location = new Point(530, 110);
+
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
+
             Name = "Manager";
-            Text = "Manager";
+            Text = "מנהל";
             ResumeLayout(false);
         }
 

@@ -64,11 +64,47 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+
+            // עיצוב כללי תואם לשאר היישום
+            this.BackColor = Color.FromArgb(245, 238, 230);
+            this.Font = new Font("Segoe UI", 10F);
+
+            // כותרת ראשית
+            var title = new Label();
+            title.Text = "קופאי";
+            title.Font = new Font("Segoe UI", 20, FontStyle.Bold);
+            title.ForeColor = Color.FromArgb(90, 70, 60);
+            title.Size = new Size(760, 50);
+            title.Location = new Point(20, 10);
+            title.TextAlign = ContentAlignment.MiddleCenter;
+            Controls.Add(title);
+
+            // מיקום רכיבים מרכזי
+            labelToInsertCustID.Font = new Font("Segoe UI", 12F);
+            labelToInsertCustID.ForeColor = Color.FromArgb(90, 70, 60);
+            labelToInsertCustID.Location = new Point(260, 120);
+            labelToInsertCustID.Size = new Size(280, 30);
+
+            textBoxCustID.Location = new Point(300, 170);
+            textBoxCustID.Size = new Size(200, 32);
+            textBoxCustID.Font = new Font("Segoe UI", 12F);
+            textBoxCustID.BorderStyle = BorderStyle.FixedSingle;
+
+            buttonOKToCustID.Location = new Point(340, 220);
+            buttonOKToCustID.Size = new Size(120, 40);
+            buttonOKToCustID.Text = "אישור";
+            buttonOKToCustID.BackColor = Color.FromArgb(181, 136, 99);
+            buttonOKToCustID.ForeColor = Color.White;
+            buttonOKToCustID.FlatStyle = FlatStyle.Flat;
+            buttonOKToCustID.FlatAppearance.BorderSize = 0;
+            buttonOKToCustID.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+
             Controls.Add(textBoxCustID);
             Controls.Add(labelToInsertCustID);
             Controls.Add(buttonOKToCustID);
+
             Name = "Cashier";
-            Text = "Cashier";
+            Text = "קופאי";
             ResumeLayout(false);
             PerformLayout();
         }

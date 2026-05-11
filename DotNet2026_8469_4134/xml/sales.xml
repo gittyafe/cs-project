@@ -3,13 +3,8 @@
   <Sale>
     <Id>100</Id>
     <ProductId>1000</ProductId>
-<<<<<<< HEAD
     <QuantityRequired>2</QuantityRequired>
     <TotalPrice>10</TotalPrice>
-=======
-    <QuantityRequired>12</QuantityRequired>
-    <TotalPrice>43.8</TotalPrice>
->>>>>>> e3da026880109e8080824b9a7429b49da480ba97
     <IsOnlyClub>true</IsOnlyClub>
     <StartSale>2025-12-31T00:00:00</StartSale>
     <EndSale>2026-12-31T00:00:00</EndSale>
@@ -17,17 +12,17 @@
   <Sale>
     <Id>101</Id>
     <ProductId>1001</ProductId>
-    <QuantityRequired>12</QuantityRequired>
-    <TotalPrice>44</TotalPrice>
+    <QuantityRequired>2</QuantityRequired>
+    <TotalPrice>22</TotalPrice>
     <IsOnlyClub>false</IsOnlyClub>
-    <StartSale>2026-01-01T00:00:00</StartSale>
-    <EndSale>2026-01-31T00:00:00</EndSale>
+      <StartSale>2026-01-01T00:00:00</StartSale>
+      <EndSale>2026-06-30T00:00:00</EndSale>
   </Sale>
   <Sale>
     <Id>102</Id>
     <ProductId>1002</ProductId>
-    <QuantityRequired>2</QuantityRequired>
-    <TotalPrice>2</TotalPrice>
+    <QuantityRequired>3</QuantityRequired>
+    <TotalPrice>15</TotalPrice>
     <IsOnlyClub>true</IsOnlyClub>
     <StartSale>2015-12-31T00:00:00</StartSale>
     <EndSale>2016-12-31T00:00:00</EndSale>
@@ -35,62 +30,17 @@
   <Sale>
     <Id>103</Id>
     <ProductId>1003</ProductId>
-    <QuantityRequired>1</QuantityRequired>
-    <TotalPrice>98.8</TotalPrice>
-    <IsOnlyClub>true</IsOnlyClub>
-    <StartSale>2015-12-31T00:00:00</StartSale>
-    <EndSale>2016-12-31T00:00:00</EndSale>
+    <QuantityRequired>10</QuantityRequired>
+    <TotalPrice>50</TotalPrice>
+    <IsOnlyClub>false</IsOnlyClub>
+    <StartSale>2025-02-28T00:00:00</StartSale>
+    <EndSale>2026-12-31T00:00:00</EndSale>
   </Sale>
   <Sale>
     <Id>104</Id>
     <ProductId>1004</ProductId>
     <QuantityRequired>3</QuantityRequired>
-    <TotalPrice>123</TotalPrice>
-    <IsOnlyClub>true</IsOnlyClub>
-    <StartSale>2015-12-31T00:00:00</StartSale>
-    <EndSale>2026-12-31T00:00:00</EndSale>
-  </Sale>
-  <Sale>
-    <Id>154</Id>
-    <ProductId>1152</ProductId>
-    <QuantityRequired>2</QuantityRequired>
-    <TotalPrice>10</TotalPrice>
-    <IsOnlyClub>true</IsOnlyClub>
-    <StartSale>2025-12-31T00:00:00</StartSale>
-    <EndSale>2026-12-31T00:00:00</EndSale>
-  </Sale>
-  <Sale>
-    <Id>155</Id>
-    <ProductId>1152</ProductId>
-    <QuantityRequired>3</QuantityRequired>
-    <TotalPrice>16</TotalPrice>
-    <IsOnlyClub>false</IsOnlyClub>
-    <StartSale>2026-01-01T00:00:00</StartSale>
-    <EndSale>2026-01-31T00:00:00</EndSale>
-  </Sale>
-  <Sale>
-    <Id>156</Id>
-    <ProductId>1153</ProductId>
-    <QuantityRequired>2</QuantityRequired>
-    <TotalPrice>22</TotalPrice>
-    <IsOnlyClub>true</IsOnlyClub>
-    <StartSale>2015-12-31T00:00:00</StartSale>
-    <EndSale>2016-12-31T00:00:00</EndSale>
-  </Sale>
-  <Sale>
-    <Id>157</Id>
-    <ProductId>1155</ProductId>
-    <QuantityRequired>5</QuantityRequired>
-    <TotalPrice>26</TotalPrice>
-    <IsOnlyClub>true</IsOnlyClub>
-    <StartSale>2015-12-31T00:00:00</StartSale>
-    <EndSale>2016-12-31T00:00:00</EndSale>
-  </Sale>
-  <Sale>
-    <Id>158</Id>
-    <ProductId>1156</ProductId>
-    <QuantityRequired>1</QuantityRequired>
-    <TotalPrice>7</TotalPrice>
+    <TotalPrice>23</TotalPrice>
     <IsOnlyClub>true</IsOnlyClub>
     <StartSale>2015-12-31T00:00:00</StartSale>
     <EndSale>2026-12-31T00:00:00</EndSale>
