@@ -1,6 +1,7 @@
 ﻿namespace BO;
 
 using System.Collections.Generic;
+using System;
 
 public class ProductInOrder
 {
@@ -34,6 +35,9 @@ public class ProductInOrder
         ListSaleInProduct = listSaleInProduct ?? new List<SaleInProduct>();
         TotalPrice = AmountInOrder * BasePrice;
     }
+
+    // האם הפריט משתמש במבצע כלשהו
+    public bool UsesSale => ListSaleInProduct != null && ListSaleInProduct.Count > 0;
 
     public override string ToString() =>
         this.ToStringProperty();

@@ -25,31 +25,31 @@ public static class Initialization
     }
     private static void createCustomers(ICustomer ci)
     {
-        ci.Create(new Customer(1, "Rivki", "Meromei Sade", "123456789"));
-        ci.Create(new Customer(2, "Gitty", "Ktsot ", "1357925"));
-        ci.Create(new Customer(3, "Yehudit", "Shaagat arie", "431221111"));
-        ci.Create(new Customer(4, "Tovi", "Mesilat yosef", "464575678"));
-        ci.Create(new Customer(16, "Shulamit", "Netivot hamishpat", "78787878"));
-        ci.Create(new Customer(5, "Dvory", "Rabi Akiva", "57453243"));
-        ci.Create(new Customer(6, "Tamar", "Petah Tikva", "235437548"));
-        ci.Create(new Customer(7, "Bina", "Mesilat yosef", "45636457"));
-        ci.Create(new Customer(8, "Shosh", "Rashbi", "7456634"));
-        ci.Create(new Customer(9, "Tsipora", "Meromei Sade", "6547568"));
-        ci.Create(new Customer(10, "Yael", "Chazon david", "42556578"));
-        ci.Create(new Customer(11, "Shimon", "Yatkovski 7", "6435342"));
-        ci.Create(new Customer(12, "David", "Mesilat", "3534645"));
-        ci.Create(new Customer(13, "Kobi", "Meromei Sade", "657658"));
-        ci.Create(new Customer(14, "Reuven", "Rashbi", "74543"));
-        ci.Create(new Customer(15, "Shosh", "Avney nezer", "534465768"));
+        ci.Create(new Customer(1, "Rivki", "Meromei Sade", "123456789", true));
+        ci.Create(new Customer(2, "Gitty", "Ktsot ", "1357925", false));
+        ci.Create(new Customer(3, "Yehudit", "Shaagat arie", "431221111", false));
+        ci.Create(new Customer(4, "Tovi", "Mesilat yosef", "464575678", true));
+        ci.Create(new Customer(16, "Shulamit", "Netivot hamishpat", "78787878", false));
+        ci.Create(new Customer(5, "Dvory", "Rabi Akiva", "57453243", false));
+        ci.Create(new Customer(6, "Tamar", "Petah Tikva", "235437548", false));
+        ci.Create(new Customer(7, "Bina", "Mesilat yosef", "45636457", false));
+        ci.Create(new Customer(8, "Shosh", "Rashbi", "7456634", false));
+        ci.Create(new Customer(9, "Tsipora", "Meromei Sade", "6547568", false));
+        ci.Create(new Customer(10, "Yael", "Chazon david", "42556578", false));
+        ci.Create(new Customer(11, "Shimon", "Yatkovski 7", "6435342", false));
+        ci.Create(new Customer(12, "David", "Mesilat", "3534645", false));
+        ci.Create(new Customer(13, "Kobi", "Meromei Sade", "657658", false));
+        ci.Create(new Customer(14, "Reuven", "Rashbi", "74543", false));
+        ci.Create(new Customer(15, "Shosh", "Avney nezer", "534465768", false));
     }
     private static void createSales(ISale si)
     {
 
-        si.Create(new Sale(1, listP[0], 12, 43.8, true, new DateTime(2025, 12, 31), new DateTime(2026, 12, 31)));
-        si.Create(new Sale(2, listP[1], 12, 44, false, new DateTime(2026, 1, 1), new DateTime(2026, 1, 31)));
-        si.Create(new Sale(3, listP[2], 2, 2, true, new DateTime(2015, 12, 31), new DateTime(2016, 12, 31)));
-        si.Create(new Sale(4, listP[3], 1, 98.8, true, new DateTime(2015, 12, 31), new DateTime(2016, 12, 31)));
-        si.Create(new Sale(5, listP[4], 3, 123, true, new DateTime(2015, 12, 31), new DateTime(2026, 12, 31)));
+        si.Create(new Sale(1, listP[0], 2, 10, true, new DateTime(2025, 12, 31), new DateTime(2026, 12, 31)));
+        si.Create(new Sale(2, listP[0], 3, 16, false, new DateTime(2026, 1, 1), new DateTime(2026, 1, 31)));
+        si.Create(new Sale(3, listP[1], 2, 22, true, new DateTime(2015, 12, 31), new DateTime(2016, 12, 31)));
+        si.Create(new Sale(4, listP[3], 5, 26, true, new DateTime(2015, 12, 31), new DateTime(2016, 12, 31)));
+        si.Create(new Sale(5, listP[4], 1, 7, true, new DateTime(2015, 12, 31), new DateTime(2026, 12, 31)));
     }
     public static void initialize()
     {
