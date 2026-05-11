@@ -31,9 +31,23 @@ namespace UI
 
         private void BindSales()
         {
-            var items = s_sale.ReadAll(x => true).OrderBy(s => s.Id);
-            _bindingSource.DataSource = new BindingList<Sale>(items.ToList());
+            var items = s_sale.ReadAll(x => true).OrderBy(s => s.Id).ToList();
+            _bindingSource.DataSource = new BindingList<Sale>(items);
+            // set Hebrew headers and RTL layout (same as CustomerManager)
+            dataGridView1.RightToLeft = RightToLeft.Yes;
+            if (dataGridView1.Columns["Id"] != null) dataGridView1.Columns["Id"].HeaderText = "מ.ז.";
+            if (dataGridView1.Columns["ProductId"] != null) dataGridView1.Columns["ProductId"].HeaderText = "מ.ז. מוצר";
+            if (dataGridView1.Columns["QuantityRequired"] != null) dataGridView1.Columns["QuantityRequired"].HeaderText = "כמות נדרשת";
+            if (dataGridView1.Columns["TotalPrice"] != null) dataGridView1.Columns["TotalPrice"].HeaderText = "סה\"כ מחיר";
+            if (dataGridView1.Columns["IsOnlyClub"] != null) dataGridView1.Columns["IsOnlyClub"].HeaderText = "חברי מועדון";
+            if (dataGridView1.Columns["StartSale"] != null) dataGridView1.Columns["StartSale"].HeaderText = "תחילת מבצע";
+            if (dataGridView1.Columns["EndSale"] != null) dataGridView1.Columns["EndSale"].HeaderText = "סיום מבצע";
+            dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+           
         }
+
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -140,6 +154,11 @@ namespace UI
                 _bindingSource.DataSource = new BindingList<Sale>(items);
                 button4.Text = "הצג הכל";
             }
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

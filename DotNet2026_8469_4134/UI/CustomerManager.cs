@@ -34,6 +34,16 @@ namespace UI
         {
             var items = s_customer.ReadAll(x => true).OrderBy(c => c.Id).ToList();
             _bindingSource.DataSource = new BindingList<Customer>(items);
+            // set Hebrew headers and RTL layout
+            dataGridView1.RightToLeft = RightToLeft.Yes;
+            if (dataGridView1.Columns["Id"] != null) dataGridView1.Columns["Id"].HeaderText = "מ.ז.";
+            if (dataGridView1.Columns["Name"] != null) dataGridView1.Columns["Name"].HeaderText = "שם";
+            if (dataGridView1.Columns["Phone"] != null) dataGridView1.Columns["Phone"].HeaderText = "טלפון";
+            if (dataGridView1.Columns["Address"] != null) dataGridView1.Columns["Address"].HeaderText = "כתובת";
+            // align headers and cells to right
+            dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            
         }
 
         // add
@@ -130,7 +140,7 @@ namespace UI
                 return;
             }
             var item = s_customer.Read(x => x.Id.ToString() == textBox1.Text);
-            if (item != null)
+            if (item != null)   
             {
                 _bindingSource.DataSource = new BindingList<Customer>(new[] { item });
             }

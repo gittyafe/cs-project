@@ -2,70 +2,70 @@
 <ArrayOfProduct xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Product>
     <Id>1000</Id>
-    <Name>Rich</Name>
+    <Name>ריץ'</Name>
     <Category>CREAM</Category>
     <Price>5.5</Price>
-    <QuantityInStack>10</QuantityInStack>
-  </Product>
-  <Product>
-    <Id>1001</Id>
-    <Name>Blueberry</Name>
-    <Category>CREAM</Category>
-    <Price>12</Price>
-    <QuantityInStack>14</QuantityInStack>
-  </Product>
-  <Product>
-    <Id>1002</Id>
-    <Name>Crystal Sugar</Name>
-    <Category>DECORATION</Category>
-    <Price>6</Price>
-    <QuantityInStack>5</QuantityInStack>
-  </Product>
-  <Product>
-    <Id>1003</Id>
-    <Name>pearl candys</Name>
-    <Category>DECORATION</Category>
-    <Price>6</Price>
-    <QuantityInStack>9</QuantityInStack>
-  </Product>
-  <Product>
-    <Id>1004</Id>
-    <Name>Crocnet</Name>
-    <Category>NUTS</Category>
-    <Price>8</Price>
     <QuantityInStack>12</QuantityInStack>
   </Product>
   <Product>
+    <Id>1001</Id>
+    <Name>אוכמניות</Name>
+    <Category>CREAM</Category>
+    <Price>12</Price>
+    <QuantityInStack>20</QuantityInStack>
+  </Product>
+  <Product>
+    <Id>1002</Id>
+    <Name>סוכר גבישי</Name>
+    <Category>DECORATION</Category>
+    <Price>6</Price>
+    <QuantityInStack>30</QuantityInStack>
+  </Product>
+  <Product>
+    <Id>1003</Id>
+    <Name>סוכריות פנינה</Name>
+    <Category>DECORATION</Category>
+    <Price>6</Price>
+    <QuantityInStack>18</QuantityInStack>
+  </Product>
+  <Product>
+    <Id>1004</Id>
+    <Name>קרוקנט</Name>
+    <Category>NUTS</Category>
+    <Price>8</Price>
+    <QuantityInStack>15</QuantityInStack>
+  </Product>
+  <Product>
     <Id>1005</Id>
-    <Name>Pecans</Name>
+    <Name>פקאן</Name>
     <Category>NUTS</Category>
     <Price>9</Price>
-    <QuantityInStack>8</QuantityInStack>
+    <QuantityInStack>10</QuantityInStack>
   </Product>
   <Product>
     <Id>1006</Id>
-    <Name>Jelly</Name>
+    <Name>ג'לי</Name>
     <Category>POWDER</Category>
     <Price>3.5</Price>
-    <QuantityInStack>11</QuantityInStack>
+    <QuantityInStack>30</QuantityInStack>
   </Product>
   <Product>
     <Id>1007</Id>
-    <Name>Baking Powder</Name>
+    <Name>אבקת אפייה</Name>
     <Category>POWDER</Category>
     <Price>2.5</Price>
-    <QuantityInStack>35</QuantityInStack>
+    <QuantityInStack>50</QuantityInStack>
   </Product>
   <Product>
     <Id>1008</Id>
-    <Name>White chocolate</Name>
+    <Name>שוקולד לבן</Name>
     <Category>CHOCOLATE</Category>
     <Price>8</Price>
-    <QuantityInStack>31</QuantityInStack>
+    <QuantityInStack>50</QuantityInStack>
   </Product>
   <Product>
     <Id>1009</Id>
-    <Name>Chocolate chips</Name>
+    <Name>צ'יפס שוקולד</Name>
     <Category>CHOCOLATE</Category>
     <Price>9</Price>
     <QuantityInStack>41</QuantityInStack>
@@ -783,6 +783,16 @@
     <Category>NUTS</Category>
     <Price>2</Price>
     <QuantityInStack>12</QuantityInStack>
+=======
+    <QuantityInStack>50</QuantityInStack>
+  </Product>
+  <Product>
+    <Id>1010</Id>
+    <Name>סוכר זהב</Name>
+    <Category>DECORATION</Category>
+    <Price>15</Price>
+    <QuantityInStack>11</QuantityInStack>
+>>>>>>> e3da026880109e8080824b9a7429b49da480ba97
   </Product>
   <Product>
     <Id>1152</Id>
