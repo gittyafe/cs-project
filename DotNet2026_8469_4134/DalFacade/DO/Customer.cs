@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace DO;
 
-public record Customer(int Id, string Name, string Address, string Phone)
+public record Customer(int Id, string Name, string Address, string Phone, bool IsClub)
 {
 
-    public Customer() : this(-1, "", "", "")
+    public Customer() : this(-1, "", "", "", false)
     {
 
     }
