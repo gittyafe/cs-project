@@ -1,105 +1,107 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ArrayOfCustomer>
   <Customer>
-    <Id>12</Id>
-    <Name>23</Name>
-    <Address>2</Address>
-    <Phone>2</Phone>
-  </Customer>
-  <Customer>
     <Id>1</Id>
-    <Name>Rivki</Name>
-    <Address>Meromei Sade</Address>
+    <Name>רבקי</Name>
+    <Address>מרומי שדה</Address>
     <Phone>123456789</Phone>
   </Customer>
   <Customer>
     <Id>2</Id>
-    <Name>Gitty</Name>
-    <Address>Ktsot </Address>
+    <Name>גיטי</Name>
+    <Address>קצות</Address>
     <Phone>1357925</Phone>
+    <IsClub>false</IsClub>
   </Customer>
   <Customer>
     <Id>3</Id>
-    <Name>Yehudit</Name>
-    <Address>Shaagat arie</Address>
+    <Name>יהודית</Name>
+    <Address>שאגת אריה</Address>
     <Phone>431221111</Phone>
+    <IsClub>false</IsClub>
   </Customer>
   <Customer>
     <Id>4</Id>
-    <Name>Tovi</Name>
-    <Address>Mesilat yosef</Address>
+    <Name>טובי</Name>
+    <Address>מסילת יוסף</Address>
     <Phone>464575678</Phone>
+    <IsClub>false</IsClub>
   </Customer>
   <Customer>
     <Id>16</Id>
-    <Name>Shulamit</Name>
-    <Address>Netivot hamishpat</Address>
+    <Name>שולמית</Name>
+    <Address>נתיבות המשפט</Address>
     <Phone>78787878</Phone>
+    <IsClub>false</IsClub>
   </Customer>
   <Customer>
     <Id>5</Id>
-    <Name>Dvory</Name>
-    <Address>Rabi Akiva</Address>
+    <Name>דבורי</Name>
+    <Address>רבי עקיבא</Address>
     <Phone>57453243</Phone>
+    <IsClub>false</IsClub>
   </Customer>
   <Customer>
     <Id>6</Id>
-    <Name>Tamar</Name>
-    <Address>Petah Tikva</Address>
+    <Name>תמר</Name>
+    <Address>פתח תקווה</Address>
     <Phone>235437548</Phone>
+    <IsClub>false</IsClub>
   </Customer>
   <Customer>
     <Id>7</Id>
-    <Name>Bina</Name>
-    <Address>Mesilat yosef</Address>
+    <Name>בינה</Name>
+    <Address>מסילת יוסף</Address>
     <Phone>45636457</Phone>
+    <IsClub>false</IsClub>
   </Customer>
   <Customer>
     <Id>8</Id>
-    <Name>Shosh</Name>
-    <Address>Rashbi</Address>
+    <Name>שוש</Name>
+    <Address>רשב"י</Address>
     <Phone>7456634</Phone>
+    <IsClub>false</IsClub>
   </Customer>
   <Customer>
     <Id>9</Id>
-    <Name>Tsipora</Name>
-    <Address>Meromei Sade</Address>
+    <Name>ציפורה</Name>
+    <Address>מרומי שדה</Address>
     <Phone>6547568</Phone>
+    <IsClub>false</IsClub>
   </Customer>
   <Customer>
     <Id>10</Id>
-    <Name>Yael</Name>
-    <Address>Chazon david</Address>
+    <Name>יעל</Name>
+    <Address>חזון דוד</Address>
     <Phone>42556578</Phone>
+    <IsClub>false</IsClub>
   </Customer>
   <Customer>
     <Id>11</Id>
-    <Name>Shimon</Name>
-    <Address>Yatkovski 7</Address>
+    <Name>שמעון</Name>
+    <Address>יטקובסקי 7</Address>
     <Phone>6435342</Phone>
+    <IsClub>false</IsClub>
   </Customer>
   <Customer>
     <Id>12</Id>
-    <Name>David</Name>
-    <Address>Mesilat</Address>
+    <Name>דוד</Name>
+    <Address>מסילת</Address>
     <Phone>3534645</Phone>
+    <IsClub>false</IsClub>
   </Customer>
   <Customer>
     <Id>13</Id>
-    <Name>Kobi</Name>
-    <Address>Meromei Sade</Address>
+    <Name>קובי</Name>
+    <Address>מרומי שדה</Address>
     <Phone>657658</Phone>
+    <IsClub>false</IsClub>
   </Customer>
   <Customer>
     <Id>14</Id>
-    <Name>Reuven</Name>
-    <Address>Rashbi</Address>
+    <Name>ראובן</Name>
+    <Address>רשב"י</Address>
     <Phone>74543</Phone>
-  </Customer>
-  <Customer>
-    <Id>15</Id>
-    <Name>Shosh</Name>
-    <Address>Avney nezer</Address>
-    <Phone>534465768</Phone>
+    <IsClub>false</IsClub>
   </Customer>
 </ArrayOfCustomer>
